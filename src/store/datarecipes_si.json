@@ -1,0 +1,836 @@
+[
+  {
+    "editable": true,
+    "titre": "Rženi kruh",
+    "petrissage": "Petrissage direct",
+    "tbase": 62,
+    "tpate": 25,
+    "pieces": [
+      {
+        "nombre": 1,
+        "titre": "batard",
+        "poid": 350
+      },
+      {
+        "nombre": 2,
+        "titre": "boule",
+        "poid": 300
+      }
+    ],
+    "ingredientsbase": [
+      {
+        "nom": "Farine Rex Seigle",
+        "quantite": 1000
+      },
+      {
+        "nom": "Eau",
+        "quantite": 680
+      },
+      {
+        "nom": "levure",
+        "quantite": 20
+      }
+    ]
+  },
+  {
+    "editable": true,
+    "titre": "Pain de seigle au levain",
+    "petrissage": "Petrissage intensifié - 1ere vitesse 3 minute - 5 a 8 minutes en 2éme vitesse",
+    "tbase": 62,
+    "tpate": 25,
+    "pieces": [
+      {
+        "nombre": 1,
+        "titre": "batard",
+        "poid": 350
+      },
+      {
+        "nombre": 2,
+        "titre": "boule",
+        "poid": 300
+      }
+    ],
+    "ingredientsbase": [
+      {
+        "nom": "Farine T 65",
+        "quantite": 250
+      },
+      {
+        "nom": "Farine Rex Seigle",
+        "quantite": 800
+      },
+      {
+        "nom": "Sel",
+        "quantite": 5
+      },
+      {
+        "nom": "Eau",
+        "quantite": 650
+      },
+      {
+        "nom": "levure",
+        "quantite": 6
+      },
+      {
+        "nom": "levain",
+        "quantite": 300
+      }
+    ]
+  },
+  {
+    "editable": true,
+    "titre": "Pain courant",
+    "tbase": 58,
+    "tpate": 23,
+    "petrissage": "Petrissage direct",
+    "pieces": [
+      {
+        "nombre": 1,
+        "titre": "Pain",
+        "poid": 550
+      },
+      {
+        "nombre": 2,
+        "titre": "Baguette",
+        "poid": 350
+      },
+      {
+        "nombre": 2,
+        "titre": "Batard long",
+        "poid": 350
+      }
+    ],
+    "ingredientsbase": [
+      {
+        "nom": "Farine T55",
+        "quantite": 1000
+      },
+      {
+        "nom": "Eau",
+        "quantite": 600
+      },
+      {
+        "nom": "Sel",
+        "quantite": 18
+      },
+      {
+        "nom": "levure",
+        "quantite": 20
+      }
+    ]
+  },
+  {
+    "editable": true,
+    "titre": "Pain complet",
+    "petrissage": "Petrissage direct",
+    "tbase": 65,
+    "tpate": 24,
+    "pieces": [
+      {
+        "nombre": 2,
+        "titre": "Batârd court",
+        "poid": 300
+      },
+      {
+        "nombre": 2,
+        "titre": "Batârd moyen",
+        "poid": 400
+      }
+    ],
+    "ingredientsbase": [
+      {
+        "nom": "Farine Rex Complete (T 150)",
+        "quantite": 1000
+      },
+      {
+        "nom": "Farine T55",
+        "quantite": 500
+      },
+      {
+        "nom": "Eau",
+        "quantite": 875
+      },
+      {
+        "nom": "Levure",
+        "quantite": 30
+      },
+      {
+        "nom": "Poudre à lait",
+        "quantite": 85
+      },
+      {
+        "nom": "Beurre",
+        "quantite": 50
+      }
+    ]
+  },
+  {
+    "editable": true,
+    "titre": "Pain complet simple",
+    "tbase": 62,
+    "tpate": 24,
+    "petrissage": "Petrissage amélioré (1ére vitesse 3 a 5 min > 2éme vitesse : 5 à 8 minutes",
+    "pieces": [
+      {
+        "nombre": 2,
+        "titre": "Pain carrés",
+        "poid": 300
+      },
+      {
+        "nombre": 2,
+        "titre": "Boules",
+        "poid": 250
+      },
+      {
+        "nombre": 1,
+        "titre": "Torsade",
+        "poid": 350
+      }
+    ],
+    "ingredientsbase": [
+      {
+        "nom": "Farine T65",
+        "quantite": 500
+      },
+      {
+        "nom": "Farine Complete Rex",
+        "quantite": 1000
+      },
+      {
+        "nom": "Eau",
+        "quantite": 975
+      },
+      {
+        "nom": "levure",
+        "quantite": 20
+      }
+    ]
+  },
+  {
+    "editable": true,
+    "titre": "Pain bis",
+    "tbase": 58,
+    "tpate": 23,
+    "petrissage": "Petrissage amélioré (1ére vitesse 3min > Autolyse 1h > 1ére vitesse 2 minutes > 2éme vitesse : 5minutes",
+    "pieces": [
+      {
+        "nombre": 2,
+        "titre": "Marguerite",
+        "poid": 350
+      },
+      {
+        "nombre": 2,
+        "titre": "Tabattières",
+        "poid": 300
+      },
+      {
+        "nombre": 1,
+        "titre": "Auvergnat",
+        "poid": 400
+      }
+    ],
+    "ingredientsbase": [
+      {
+        "nom": "Farine T65",
+        "quantite": 1000
+      },
+      {
+        "nom": "Farine Complete Rex",
+        "quantite": 1000
+      },
+      {
+        "nom": "Eau",
+        "quantite": 1300
+      },
+      {
+        "nom": "levure",
+        "quantite": 12
+      }
+    ]
+  },
+  {
+    "editable": true,
+    "titre": "Pain de mie",
+    "tbase": 48,
+    "tpate": 24,
+    "petrissage": "Petrissage intensifié (1ére vitesse 3min > 2éme vitesse : 8/10 minutes",
+    "pieces": [
+      {
+        "nombre": 5,
+        "titre": "Pain de mie",
+        "poid": 300
+      }
+    ],
+    "ingredientsbase": [
+      {
+        "nom": "Farine Gruau",
+        "quantite": 1000
+      },
+      {
+        "nom": "Sel",
+        "quantite": 20
+      },
+      {
+        "nom": "Sucre",
+        "quantite": 50
+      },
+      {
+        "nom": "Poudre à lait",
+        "quantite": 40
+      },
+      {
+        "nom": "Eau",
+        "quantite": 600
+      },
+      {
+        "nom": "Levure",
+        "quantite": 20
+      },
+      {
+        "nom": "Pâte fermentée",
+        "quantite": 200
+      }
+    ]
+  },
+  {
+    "editable": true,
+    "titre": "Pain au lait",
+    "tbase": 48,
+    "tpate": 23,
+    "petrissage": "Petrissage direct",
+    "pieces": [
+      {
+        "nombre": 10,
+        "titre": "Pain au lait",
+        "poid": 80
+      },
+      {
+        "nombre": 1,
+        "titre": "Tresse",
+        "poid": 300
+      }
+    ],
+    "ingredientsbase": [
+      {
+        "nom": "Farine de gruau",
+        "quantite": 1000
+      },
+      {
+        "nom": "Sucre",
+        "quantite": 120
+      },
+      {
+        "nom": "sel",
+        "quantite": 20
+      },
+      {
+        "nom": "levure",
+        "quantite": 20
+      },
+      {
+        "nom": "Oeuf",
+        "quantite": 200
+      },
+      {
+        "nom": "eau",
+        "quantite": 360
+      },
+      {
+        "nom": "Poudre à lait",
+        "quantite": 40
+      },
+      {
+        "nom": "beurre",
+        "quantite": 200
+      }
+    ]
+  },
+  {
+    "editable": true,
+    "titre": "Pain courant sur autolyse",
+    "tbase": 62,
+    "tpate": 23,
+    "petrissage": "Petrissage direct",
+    "pieces": [
+      {
+        "nombre": 2,
+        "titre": "Baguette",
+        "poid": 300
+      },
+      {
+        "nombre": 2,
+        "titre": "Baguette",
+        "poid": 350
+      },
+      {
+        "nombre": 1,
+        "titre": "Pain",
+        "poid": 500
+      }
+    ],
+    "ingredientsbase": [
+      {
+        "nom": "Farine T65",
+        "quantite": 1000
+      },
+      {
+        "nom": "Eau",
+        "quantite": 680
+      },
+      {
+        "nom": "sel",
+        "quantite": 18
+      },
+      {
+        "nom": "levure",
+        "quantite": 12
+      }
+    ]
+  },
+  {
+    "editable": true,
+    "titre": "Pain de campagne sur levain",
+    "tbase": 60,
+    "tpate": 25,
+    "petrissage": "Petrissage indirect",
+    "pieces": [
+      {
+        "nombre": 2,
+        "titre": "Couronnes",
+        "poid": 400
+      },
+      {
+        "nombre": 2,
+        "titre": "Tabatière",
+        "poid": 300
+      }
+    ],
+    "ingredientsbase": [
+      {
+        "nom": "Farine T55",
+        "quantite": 800
+      },
+      {
+        "nom": "Farine Rex Seigle",
+        "quantite": 200
+      },
+      {
+        "nom": "Eau",
+        "quantite": 650
+      },
+      {
+        "nom": "sel",
+        "quantite": 16
+      },
+      {
+        "nom": "levure",
+        "quantite": 10
+      },
+      {
+        "nom": "levain",
+        "quantite": 418
+      }
+    ]
+  },
+  {
+    "editable": true,
+    "titre": "Pate à croissant - V1",
+    "tbase": 48,
+    "tpate": 23,
+    "petrissage": "Petrissage indirect",
+    "pieces": [
+      {
+        "nombre": 12,
+        "titre": "Croissants",
+        "poid": 70
+      }
+    ],
+    "ingredientsbase": [
+      {
+        "nom": "Farine de gruau",
+        "quantite": 500
+      },
+      {
+        "nom": "Farine T65",
+        "quantite": 500
+      },
+      {
+        "nom": "Sucre",
+        "quantite": 120
+      },
+      {
+        "nom": "Sel",
+        "quantite": 20
+      },
+      {
+        "nom": "levure",
+        "quantite": 20
+      },
+      {
+        "nom": "Pâte fermentée",
+        "quantite": 200
+      },
+      {
+        "nom": "Beurre",
+        "quantite": 100
+      },
+      {
+        "nom": "eau",
+        "quantite": 560
+      },
+      {
+        "nom": "Poudre à lait",
+        "quantite": 70
+      },
+      {
+        "nom": "Beurre sec",
+        "quantite": 796
+      }
+    ]
+  },
+  {
+    "editable": true,
+    "titre": "Pate à croissant - V2",
+    "tbase": 48,
+    "tpate": 23,
+    "petrissage": "Petrissage indirect",
+    "pieces": [
+      {
+        "nombre": 12,
+        "titre": "Croissants",
+        "poid": 70
+      }
+    ],
+    "ingredientsbase": [
+      {
+        "nom": "Farine de gruau",
+        "quantite": 1000
+      },
+      {
+        "nom": "Sucre",
+        "quantite": 130
+      },
+      {
+        "nom": "Sel",
+        "quantite": 18
+      },
+      {
+        "nom": "levure",
+        "quantite": 45
+      },
+      {
+        "nom": "Beurre",
+        "quantite": 100
+      },
+      {
+        "nom": "eau",
+        "quantite": 400
+      },
+      {
+        "nom": "Oeufs",
+        "quantite": 100
+      },
+      {
+        "nom": "Poudre à lait",
+        "quantite": 40
+      },
+      {
+        "nom": "Beurre sec",
+        "quantite": 500
+      }
+    ]
+  },
+  {
+    "editable": true,
+    "titre": "Pain de tradition",
+    "tbase": 58,
+    "tpate": 23,
+    "petrissage": "Petrissage amélioré > 3min + Autolyse 1h + 2min + 5min",
+    "pieces": [
+      {
+        "nombre": 2,
+        "titre": "Baguette",
+        "poid": 300
+      },
+      {
+        "nombre": 2,
+        "titre": "Baguette longue",
+        "poid": 350
+      },
+      {
+        "nombre": 1,
+        "titre": "Pain",
+        "poid": 500
+      }
+    ],
+    "ingredientsbase": [
+      {
+        "nom": "Farine de tradition",
+        "quantite": 1000
+      },
+      {
+        "nom": "Eau",
+        "quantite": 700
+      },
+      {
+        "nom": "sel",
+        "quantite": 18
+      },
+      {
+        "nom": "levure",
+        "quantite": 18
+      }
+    ]
+  },
+  {
+    "editable": true,
+    "titre": "Pain viennois - v1",
+    "tbase": 48,
+    "tpate": 23,
+    "petrissage": "Petrissage amélioré",
+    "pieces": [
+      {
+        "nombre": 2,
+        "titre": "demi viennoise nature",
+        "poid": 180
+      },
+      {
+        "nombre": 3,
+        "titre": "demi viennoise pépite chocolat",
+        "poid": 180
+      }
+    ],
+    "ingredientsbase": [
+      {
+        "nom": "Farine Gruau",
+        "quantite": 1000
+      },
+      {
+        "nom": "sucre",
+        "quantite": 60
+      },
+      {
+        "nom": "sel",
+        "quantite": 20
+      },
+      {
+        "nom": "levure",
+        "quantite": 20
+      },
+      {
+        "nom": "oeufs",
+        "quantite": 100
+      },
+      {
+        "nom": "Eau",
+        "quantite": 430
+      },
+      {
+        "nom": "Poudre à lait",
+        "quantite": 50
+      },
+      {
+        "nom": "Beurre",
+        "quantite": 100
+      }
+    ]
+  },
+  {
+    "editable": true,
+    "titre": "Pain viennois - V2",
+    "tbase": 48,
+    "tpate": 23,
+    "petrissage": "3 minutes frasage, 3 minutes soufflage, ajout du beurre, 3 minutes soufflage.",
+    "pieces": [
+      {
+        "nombre": 2,
+        "titre": "demi viennoise nature",
+        "poid": 180
+      },
+      {
+        "nombre": 3,
+        "titre": "demi viennoise pépite chocolat",
+        "poid": 180
+      }
+    ],
+    "ingredientsbase": [
+      {
+        "nom": "Farine T45",
+        "quantite": 1000
+      },
+      {
+        "nom": "sucre",
+        "quantite": 60
+      },
+      {
+        "nom": "sel",
+        "quantite": 18
+      },
+      {
+        "nom": "levure",
+        "quantite": 30
+      },
+      {
+        "nom": "oeufs",
+        "quantite": 150
+      },
+      {
+        "nom": "Eau",
+        "quantite": 480
+      },
+      {
+        "nom": "Poudre à lait",
+        "quantite": 40
+      },
+      {
+        "nom": "Beurre",
+        "quantite": 125
+      }
+    ]
+  },
+  {
+    "editable": true,
+    "titre": "Pain au cacao",
+    "tbase": 58,
+    "tpate": 24,
+    "petrissage": "Petrissage amélioré",
+    "pieces": [
+      {
+        "nombre": 6,
+        "titre": "boules",
+        "poid": 60
+      },
+      {
+        "nombre": 10,
+        "titre": "Pains",
+        "poid": 80
+      }
+    ],
+    "ingredientsbase": [
+      {
+        "nom": "Farine Gruau",
+        "quantite": 500
+      },
+      {
+        "nom": "Farine T65",
+        "quantite": 500
+      },
+      {
+        "nom": "sel",
+        "quantite": 20
+      },
+      {
+        "nom": "miel",
+        "quantite": 100
+      },
+      {
+        "nom": "levure",
+        "quantite": 30
+      },
+      {
+        "nom": "beurre",
+        "quantite": 200
+      },
+      {
+        "nom": "Poudre à lait",
+        "quantite": 60
+      },
+      {
+        "nom": "Poudre de cacao",
+        "quantite": 50
+      },
+      {
+        "nom": "drops",
+        "quantite": 120
+      },
+      {
+        "nom": "Eau",
+        "quantite": 600
+      }
+    ]
+  },
+  {
+    "editable": true,
+    "titre": "Pain au miel",
+    "tbase": 58,
+    "tpate": 24,
+    "petrissage": "Petrissage amélioré",
+    "pieces": [
+      {
+        "nombre": 10,
+        "titre": "pain",
+        "poid": 500
+      }
+    ],
+    "ingredientsbase": [
+      {
+        "nom": "Farine T65",
+        "quantite": 10000
+      },
+      {
+        "nom": "Farine Rex seigle",
+        "quantite": 5000
+      },
+      {
+        "nom": "Pâte fermentée",
+        "quantite": 5500
+      },
+      {
+        "nom": "miel",
+        "quantite": 750
+      },
+      {
+        "nom": "sel",
+        "quantite": 180
+      },
+      {
+        "nom": "Eau",
+        "quantite": 7000
+      }
+    ]
+  },
+  {
+    "editable": true,
+    "titre": "Pain Aromatiques",
+    "tbase": 58,
+    "tpate": 24,
+    "petrissage": "Petrissage amélioré",
+    "pieces": [
+      {
+        "nombre": 10,
+        "titre": "pains",
+        "poid": 500
+      }
+    ],
+    "ingredientsbase": [
+      {
+        "nom": "Farine T65",
+        "quantite": 1000
+      },
+      {
+        "nom": "Pâte fermentée",
+        "quantite": 300
+      },
+      {
+        "nom": "levure",
+        "quantite": 6
+      },
+      {
+        "nom": "sel",
+        "quantite": 18
+      },
+      {
+        "nom": "Eau",
+        "quantite": 620
+      },
+      {
+        "nom": "Huile",
+        "quantite": 60
+      },
+      {
+        "nom": "Herbes de provence",
+        "quantite": 40
+      }
+    ]
+  }
+]

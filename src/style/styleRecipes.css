@@ -1,0 +1,88 @@
+.existing {
+  border-bottom: 1px solid #000;
+}
+
+.recipes {
+  margin: 0;
+  padding: 0;
+  padding: 5px;
+  display: inline-block;
+}
+
+.moreinfos {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  display: block;
+  background: white;
+  border: 1px solid #ccc;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 5px;
+  transition: opacity 0.3s;
+  z-index: 10;
+  max-width: 300px;
+  white-space: normal;
+  color: #000;
+  font-size: 12px;
+}
+
+.moreinfos span {
+  display: block;
+}
+
+.recipe:hover .moreinfos {
+  opacity: 1;
+  visibility: visible;
+}
+
+.recipes li.recipe {
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+  font-size: 18px;
+  float: left;
+  padding: 5px;
+  border: 1px solid #000;
+  margin: 3px 3px;
+}
+
+.recipe .trash {
+  margin-left: 5px;
+  /* vertical-align:middle; */
+}
+
+.recipe.active {
+  background: #000;
+  color: #fff;
+}
+
+.recipe:hover, .recipe:hover.active {
+  background: #888;
+  color: #fff;
+}
+
+.existing menu {
+  display: block;
+  padding-left: 40px
+}
+
+.existing menu .bt {
+  margin-left: 10px
+}
+
+.existingrecipes .formAddPrd {
+  display: flex;
+  flex-direction: column;
+}
+
+.existingrecipes .composition {
+  background: #d8d8d8;
+  border: #aaa;
+  padding: 10px;
+}
+
+.composition .ingredients input {
+  margin: 5px 5px 5px 0;
+}
