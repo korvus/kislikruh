@@ -1,0 +1,13 @@
+.petrissage {
+  display: block;
+  clear: both;
+  border-top: 1px solid #000;
+  padding: 20px 0 20px 40px;
+}
+
+@media screen and (max-width: 900px){
+  .petrissage {
+      padding-left: 5px;
+  }
+
+}

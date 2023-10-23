@@ -1,0 +1,95 @@
+import React, { Fragment } from "react";
+import trashIcon from "../../style/trash.svg";
+import { viennoiserieDetector } from "./../functions.js";
+
+const eauDetector = new RegExp(/eau/im);
+
+const Supp = ({ action, ingredient }) => {
+  return (
+    <button
+      onClick={() => action(ingredient)}
+      className="supprimer"
+      title="retirer de la liste des produits"
+    >
+      <img width="15" src={trashIcon} alt="supprimer" />
+    </button>
+  );
+};
+
+const FirstCol = ({ ingredient, ingredientType }) => {
+  return <div className="base">{ingredient.quantite}</div>;
+};
+
+const SecondCol = ({ ingredient, fonctions }) => {
+  const { suppr, getWithcoef } = fonctions;
+  return (
+    <div className="recette">
+      {getWithcoef(ingredient.quantite)}
+      <Supp action={suppr} ingredient={ingredient} />
+    </div>
+  );
+};
+
+const QuantiteParIngredients = ({
+  iteration,
+  hydra,
+  ingredient,
+  fonctions,
+  detrempe,
+}) => {
+  let ingredientType = "undefined";
+  if (ingredient.type !== undefined) {
+    if (ingredient.type === "petrisse") ingredientType = "petrisse";
+    if (ingredient.type === "global") ingredientType = "global"; // Farine non divisée
+    if (ingredient.type === "double") ingredientType = "double";
+  }
+
+  let label = ingredient.nom;
+  if (eauDetector.test(label)) {
+    label = (
+      <Fragment>
+        {ingredient.nom}
+        <span className="hydratation">({hydra}%)</span>
+      </Fragment>
+    );
+  }
+
+  if (detrempe > 0 && viennoiserieDetector.test(label)) {
+    const { getWithcoef } = fonctions;
+    return (
+      <Fragment>
+        <li key={iteration + "chaine"} className="detrempe">
+          <label>Poid détrempe</label>
+          <div className="base">{detrempe}</div>
+          <div className="coef"></div>
+          <div className="recette">{getWithcoef(detrempe)}</div>
+        </li>
+        <li key={iteration}>
+          <label>{label}</label>
+          <FirstCol ingredientType={ingredientType} ingredient={ingredient} />
+          <div className="coef"></div>
+          <SecondCol
+            fonctions={fonctions}
+            ingredientType={ingredientType}
+            ingredient={ingredient}
+          />
+        </li>
+      </Fragment>
+    );
+  }
+
+  return (
+    <li key={iteration}>
+      <label>{label}</label>
+      <FirstCol ingredientType={ingredientType} ingredient={ingredient} />
+      <div className="coef"></div>
+      <SecondCol
+        fonctions={fonctions}
+        ingredientType={ingredientType}
+        ingredient={ingredient}
+      />
+    </li>
+  );
+};
+
+export default QuantiteParIngredients;

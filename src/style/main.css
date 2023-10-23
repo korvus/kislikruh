@@ -1,0 +1,23 @@
+body{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  background: #e8dec8;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.ingredients ul li.hide,
+.hide {
+  display: none;
+}
+
+@media screen and (max-width: 900px){
+  section {
+      padding: 0;
+  }
+}

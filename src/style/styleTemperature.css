@@ -1,0 +1,68 @@
+.temperatures {
+    padding-left: 40px;
+}
+
+.temperatures li {
+    list-style: none;
+}
+
+.temperature .warning {
+    margin-left: 40px;
+    margin-bottom: 0;
+}
+
+.tpate {
+    border-top: 1px solid #7c7c7c;
+    padding-top: 5px;
+    margin-top: 5px;
+}
+
+.tpate span {
+    font-weight: bold;
+    color: #7e752b;
+}
+
+.eau {
+    font-weight: bold;
+    color: #060c69;
+}
+
+.tbase {
+    border-bottom: 1px solid #7c7c7c;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.temperatures button {
+    background: transparent;
+    border: 1px solid #555;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.definirTemperatureBase {
+    background: #aaa;
+    margin: 5px 0;
+    border: 1px solid #555;
+    border-radius: 3px;
+    padding: 5px;
+    cursor: pointer;
+    float: left;
+    margin-left: 40px;
+}
+
+
+@media screen and (max-width: 900px){
+    .temperatures {
+        padding-left: 0;
+    }
+    .temperatures li {
+        padding-left: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .temperatures button {
+        padding: 4px 8px;
+    }
+}

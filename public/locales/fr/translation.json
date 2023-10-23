@@ -1,0 +1,12 @@
+{
+  "addAPiece": "Ajouter une pièce",
+  "addIngredient": "Ajouter un ingrédient",
+  "labelItem": "Nom du produit",
+  "weight": "poid (en gr)",
+  "numberProducts": "nombre de produits",
+  "annuler": "Annuler",
+  "add": "Ajouter",
+  "suppress": "supprimer",
+  "suppressThisRecipe": "Supprimer cette recette",
+  "addRecipe": "Ajouter une recette"
+}

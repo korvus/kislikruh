@@ -1,0 +1,138 @@
+.trash {
+    cursor: pointer;
+}
+
+div.pieces {
+    border-bottom: 1px solid #000;
+    overflow: hidden;
+}
+
+.pieces ul li {
+    list-style: "+";
+    text-indent: 10px;
+    border-bottom: 1px solid #ccc3b0;
+    padding: 4px 0;
+}
+
+.pieces ul li:last-child {
+    border-bottom: none;
+}
+
+.pieces ul li:first-child {
+    list-style: "";
+}
+
+.pieces ul li.total {
+    list-style: "=";
+}
+
+.pieces ul li.nombre{
+    list-style: "x";
+}
+
+.pieces ul li.nopuce {
+    list-style: "";
+}
+
+.pieces li b {
+    padding: 0 10px;
+}
+
+.pieces button.simple {
+    background: transparent;
+    border: 1px solid #555;
+    cursor: pointer;
+}
+
+.pieces h2{
+    margin: 0;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.pieces .poidTotal {
+    font-size: 18px;
+    padding: 0;
+}
+
+/* .pieces .ajouterIngredients, */
+.bt {
+    background: #aaa;
+    margin: 5px 0;
+    border: 1px solid #555;
+    border-radius: 3px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.pieces .supprimer {
+    border: none;
+}
+
+.formAddPrd {
+    padding-top: 10px;
+    padding-left: 40px;
+    border: 1px solid #999;
+    overflow: hidden;
+    background: #eee;
+}
+
+fieldset {
+    border: none;
+    float: left;
+    padding: 0 10px 10px 0;
+}
+
+fieldset label {
+    display: block;
+}
+
+.formAddPrd b {
+    padding: 0 10px;
+}
+
+.formAddPrd input {
+    padding: 5px;
+}
+
+.formAddPrd .submit {
+    clear: left;
+    float: left;
+    margin: 0 0 10px 0;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.formAddPrd .submit+span {
+    float: left;
+    color: #999;
+    margin-left: 10px;
+    padding-top: 4px;
+    cursor: pointer;
+}
+
+.pieces span {
+    padding: 5px 0 5px 5px;
+}
+
+
+@media screen and (max-width: 900px){
+    .recipe {
+        margin-bottom: 10px;
+    }
+    
+    .recipe span b {
+        display: block;
+        clear: both;
+    }
+
+    .formAddPrd {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    div.pieces ul{
+        padding-left: 20px;
+    }
+}
+  

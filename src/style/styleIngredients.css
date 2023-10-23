@@ -1,0 +1,84 @@
+.ingredients ul {
+    width: 900px;
+}
+
+.ingredients ul li {
+    display: flex;
+    padding: 5px 0;
+}
+
+.ingredients ul li:nth-child(odd) {
+    background: #fff;
+}
+
+.ingredients ul li.detrempe {
+    background: #ccc;
+    border-top: 1px solid #000;
+}
+
+.ingredients ul li.total {
+    border: 1px solid #000;
+    background: #eee;
+}
+
+.ingredients ul li.header {
+    border-bottom: 1px solid #000;
+    background: #cac1ad;
+}
+
+.ingredients ul li.addIngredient {
+    background: none;
+    display: inherit;
+}
+
+.addIngredient button {
+    background: #aaa;
+    margin: 5px 0;
+    border: 1px solid #555;
+    border-radius: 3px;
+    padding: 5px;
+    cursor: pointer;
+    float: left;
+}
+
+.ingredients ul li > *{
+    flex: 1 100%;
+    align-self: flex-start;
+    padding: 0 5px;
+}
+
+.ingredients li .supprimer {
+    border: none;
+    float: right;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.ingredients li .supprimer:hover,
+.ingredients li .supprimer:focus  {
+    opacity: 1;
+}
+
+.ingredients .hydratation {
+    margin-left: 5px;
+    color: #2c69af;
+}
+
+.ingredients .poolish {
+    padding-top: 10px;
+    margin-left: 40px;
+    display: flex;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 900px){
+    .ingredients {
+        width: auto;
+    }
+
+    .ingredients ul {
+        padding: 0;
+        width: 100%;
+    }
+  }
+  
