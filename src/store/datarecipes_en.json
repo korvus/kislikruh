@@ -23,8 +23,9 @@
         "quantite": 1000
       },
       {
-        "nom": "Eau",
-        "quantite": 680
+        "nom": "water",
+        "quantite": 680,
+        "liquid": true
       },
       {
         "nom": "levure",
@@ -64,8 +65,9 @@
         "quantite": 5
       },
       {
-        "nom": "Eau",
-        "quantite": 650
+        "nom": "water",
+        "quantite": 650,
+        "liquid": true
       },
       {
         "nom": "levure",
@@ -106,8 +108,9 @@
         "quantite": 1000
       },
       {
-        "nom": "Eau",
-        "quantite": 600
+        "nom": "water",
+        "quantite": 600,
+        "liquid": true
       },
       {
         "nom": "Sel",
@@ -147,8 +150,9 @@
         "quantite": 500
       },
       {
-        "nom": "Eau",
-        "quantite": 875
+        "nom": "water",
+        "quantite": 875,
+        "liquid": true
       },
       {
         "nom": "Levure",
@@ -197,8 +201,9 @@
         "quantite": 1000
       },
       {
-        "nom": "Eau",
-        "quantite": 975
+        "nom": "water",
+        "quantite": 975,
+        "liquid": true
       },
       {
         "nom": "levure",
@@ -239,8 +244,9 @@
         "quantite": 1000
       },
       {
-        "nom": "Eau",
-        "quantite": 1300
+        "nom": "water",
+        "quantite": 1300,
+        "liquid": true
       },
       {
         "nom": "levure",
@@ -279,8 +285,9 @@
         "quantite": 40
       },
       {
-        "nom": "Eau",
-        "quantite": 600
+        "nom": "water",
+        "quantite": 600,
+        "liquid": true
       },
       {
         "nom": "Levure",
@@ -332,8 +339,9 @@
         "quantite": 200
       },
       {
-        "nom": "eau",
-        "quantite": 360
+        "nom": "water",
+        "quantite": 360,
+        "liquid": true
       },
       {
         "nom": "Poudre à lait",
@@ -374,8 +382,9 @@
         "quantite": 1000
       },
       {
-        "nom": "Eau",
-        "quantite": 680
+        "nom": "water",
+        "quantite": 680,
+        "liquid": true
       },
       {
         "nom": "sel",
@@ -415,8 +424,9 @@
         "quantite": 200
       },
       {
-        "nom": "Eau",
-        "quantite": 650
+        "nom": "water",
+        "quantite": 650,
+        "liquid": true
       },
       {
         "nom": "sel",
@@ -475,8 +485,9 @@
         "quantite": 100
       },
       {
-        "nom": "eau",
-        "quantite": 560
+        "nom": "water",
+        "quantite": 560,
+        "liquid": true
       },
       {
         "nom": "Poudre à lait",
@@ -523,8 +534,9 @@
         "quantite": 100
       },
       {
-        "nom": "eau",
-        "quantite": 400
+        "nom": "water",
+        "quantite": 400,
+        "liquid": true
       },
       {
         "nom": "Oeufs",
@@ -569,8 +581,9 @@
         "quantite": 1000
       },
       {
-        "nom": "Eau",
-        "quantite": 700
+        "nom": "water",
+        "quantite": 700,
+        "liquid": true
       },
       {
         "nom": "sel",
@@ -622,8 +635,9 @@
         "quantite": 100
       },
       {
-        "nom": "Eau",
-        "quantite": 430
+        "nom": "water",
+        "quantite": 430,
+        "liquid": true
       },
       {
         "nom": "Poudre à lait",
@@ -675,8 +689,9 @@
         "quantite": 150
       },
       {
-        "nom": "Eau",
-        "quantite": 480
+        "nom": "water",
+        "quantite": 480,
+        "liquid": true
       },
       {
         "nom": "Poudre à lait",
@@ -744,8 +759,9 @@
         "quantite": 120
       },
       {
-        "nom": "Eau",
-        "quantite": 600
+        "nom": "water",
+        "quantite": 600,
+        "liquid": true
       }
     ]
   },
@@ -784,8 +800,9 @@
         "quantite": 180
       },
       {
-        "nom": "Eau",
-        "quantite": 7000
+        "nom": "water",
+        "quantite": 7000,
+        "liquid": true
       }
     ]
   },
@@ -820,8 +837,9 @@
         "quantite": 18
       },
       {
-        "nom": "Eau",
-        "quantite": 620
+        "nom": "water",
+        "quantite": 620,
+        "liquid": true
       },
       {
         "nom": "Huile",

@@ -1,12 +1,19 @@
+import React, { useContext } from "react";
+import { PanemContext } from "../store/centralrecipes";
 import Recipes from "./recipes.js";
 import Pieces from "./pieces.js";
 import Ingredients from "./ingredients.js";
 import Menu from "./menu.js";
 import Petrissage from "./petrissage.js";
 import Temperature from "./temperature.js";
-// import { PanemContext } from "../store/recipes";
 
 function Proportions() {
+  const { recipes } = useContext(PanemContext);
+
+  if (!recipes || recipes.length === 0) {
+    return <div className="App">loading...</div>;
+  }
+
   return (
     <div className="App">
       <section className="menu">
@@ -27,7 +34,6 @@ function Proportions() {
       <section className="temperature">
         <Temperature />
       </section>
-
     </div>
   );
 }

@@ -67,6 +67,7 @@ div.pieces {
 
 .pieces .supprimer {
     border: none;
+    background-color: transparent;
 }
 
 .formAddPrd {
@@ -83,6 +84,14 @@ fieldset {
     padding: 0 10px 10px 0;
 }
 
+fieldset.error input {
+    border-color: red;
+}
+
+fieldset.error .error {
+    color: red;
+}
+
 fieldset label {
     display: block;
 }
@@ -96,19 +105,31 @@ fieldset label {
 }
 
 .formAddPrd .submit {
-    clear: left;
     float: left;
-    margin: 0 0 10px 0;
+    margin: 14px 0 14px 2px;
     padding: 5px 15px;
     cursor: pointer;
+    align-self: flex-start;
+}
+
+.formAddPrd .submitBt {
+    display: flex;
+}
+
+.formAddPrd #desc {
+    width: 50%;
+    max-width: 500px;
+    height: 100px;
 }
 
 .formAddPrd .submit+span {
-    float: left;
+    align-items: center;
+    display: flex;
     color: #999;
     margin-left: 10px;
     padding-top: 4px;
     cursor: pointer;
+    margin-bottom: 6px;
 }
 
 .pieces span {

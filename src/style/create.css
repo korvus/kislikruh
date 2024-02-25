@@ -1,0 +1,112 @@
+.alreadyCooked {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.alreadyCooked > span {
+  color: #555;
+}
+
+.ingredients .trash {
+  padding-left: 5px;
+}
+
+.ingredients .unity {
+  color: #999;
+}
+
+.existingPiece {
+  padding: 0;
+  margin: 5px 0 10px;
+  clear: both;
+  display: inline-block;
+  max-width: 900px;
+}
+
+.existingPiece li {
+  list-style-type: none;
+  padding: 3px;
+  float: left;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 1px;
+  border: 1px solid #000;
+}
+
+.composition .ingredients .ingredientName:read-only {
+  background: #ddd;
+  color: #555;
+  border: 1px solid #aaa;
+}
+
+.composition label {
+  margin-bottom: 5px;
+}
+
+.composition .ingredients label{
+  position: relative;
+  top: 5px;
+}
+
+.existingPiece li.recipeAsIngredient {
+  background: #999;
+  color: #ccc;
+  border: 1px solid #666;
+  cursor: default;
+}
+
+.composition .pieces {
+  flex-direction: column;
+  border-bottom: none;
+  margin-bottom: 10px;
+}
+
+.pieces .fields {
+  display: block;
+}
+
+.addIngredient {
+  margin-left: 24px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.currentWeight {
+  margin: 10px 0;
+  display: block;
+  color: #888;
+}
+
+.currentWeight svg {
+  transform: scale(1.5);
+  width: 20px;
+}
+
+.pieces .error {
+  color: red;
+}
+
+.pieces input.error {
+  border-color: red;
+}
+
+.metaInfos {
+  display: inline-block;
+}
+
+.metaInfos .infobulle-container {
+  padding-right: 10px;
+  margin-right: 0;
+}
+
+.metaInfos .eggCalculator {
+  display: inline-block;
+}
+
+.metaInfos .eggCalculator > button {
+  background: none;
+  border: none;
+  border: 1px solid #666;
+  padding: 4px 16px 0px;
+}

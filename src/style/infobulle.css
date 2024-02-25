@@ -1,0 +1,16 @@
+.infobulle-container {
+  position: relative;
+  display: inline-block;
+}
+
+.infobulle-text {
+  position: absolute;
+  bottom: 100%;
+  left: 0%;
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  /* autres styles selon vos besoins */
+}

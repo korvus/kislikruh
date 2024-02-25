@@ -8,5 +8,10 @@
   "add": "add",
   "suppress": "erase",
   "suppressThisRecipe": "Suppress this recipe",
-  "addRecipe": "add a recipe"
+  "addRecipe": "add a recipe",
+  "reinitRecipe": "Reset the recipes",
+  "areYouSureToReinitRecipe": "Are you sure? You will lost all the settings you saved so far.",
+  "areYouSureToSuppress": "Are you sure to suppress?",
+  "Naming the recipe is mandatory": "Naming the recipe is mandatory",
+  "Recipe must have at least 2 ingredients !": "Recipe must have at least 2 ingredients !"
 }
