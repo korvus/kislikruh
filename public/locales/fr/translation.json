@@ -8,5 +8,10 @@
   "add": "Ajouter",
   "suppress": "supprimer",
   "suppressThisRecipe": "Supprimer cette recette",
-  "addRecipe": "Ajouter une recette"
+  "addRecipe": "Ajouter une recette",
+  "reinitRecipe": "Réinitialiser les recettes",
+  "areYouSureToReinitRecipe": "Êtes-vous sûr ? Cela va supprimer toutes les modifications que vous avez put apporter.",
+  "areYouSureToSuppress": "Êtes-vous sûr de vouloir supprimer ?",
+  "Naming the recipe is mandatory": "Donner un nom a la recette est obligatoire",
+  "Recipe must have at least 2 ingredients !": "Une recette comporte au moins 2 ingrédients !"
 }

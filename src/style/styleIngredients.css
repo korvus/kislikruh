@@ -1,5 +1,17 @@
+.composition .ingredients {
+    display: flex;
+    align-items: center;
+}
+
+
 .ingredients ul {
     width: 900px;
+}
+
+.ingredients label {
+    display: inline-block;
+    padding-right: 5px;
+    top: 10px;
 }
 
 .ingredients ul li {

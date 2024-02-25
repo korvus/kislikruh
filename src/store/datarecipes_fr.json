@@ -22,7 +22,8 @@
         "quantite": 1000
       },
       {
-        "nom": "Eau",
+        "nom": "eau",
+        "liquid": true,
         "quantite": 680
       },
       {
@@ -34,7 +35,7 @@
   {
     "editable": true,
     "titre": "Pain de seigle au levain",
-    "petrissage": "Petrissage intensifié - 1ere vitesse 3 minute - 5 a 8 minutes en 2éme vitesse",
+    "desc": "Petrissage intensifié - 1ere vitesse 3 minute - 5 a 8 minutes en 2éme vitesse",
     "tbase": 62,
     "tpate": 25,
     "pieces": [
@@ -63,7 +64,8 @@
         "quantite": 5
       },
       {
-        "nom": "Eau",
+        "nom": "eau",
+        "liquid": true,
         "quantite": 650
       },
       {
@@ -81,7 +83,7 @@
     "titre": "Pain courant",
     "tbase": 58,
     "tpate": 23,
-    "petrissage": "Petrissage direct",
+    "desc": "Petrissage direct",
     "pieces": [
       {
         "nombre": 1,
@@ -105,7 +107,8 @@
         "quantite": 1000
       },
       {
-        "nom": "Eau",
+        "nom": "eau",
+        "liquid": true,
         "quantite": 600
       },
       {
@@ -121,7 +124,7 @@
   {
     "editable": true,
     "titre": "Pain complet",
-    "petrissage": "Petrissage direct",
+    "desc": "Petrissage direct",
     "tbase": 65,
     "tpate": 24,
     "pieces": [
@@ -146,7 +149,8 @@
         "quantite": 500
       },
       {
-        "nom": "Eau",
+        "nom": "eau",
+        "liquid": true,
         "quantite": 875
       },
       {
@@ -168,7 +172,7 @@
     "titre": "Pain complet simple",
     "tbase": 62,
     "tpate": 24,
-    "petrissage": "Petrissage amélioré (1ére vitesse 3 a 5 min > 2éme vitesse : 5 à 8 minutes",
+    "desc": "Petrissage amélioré (1ére vitesse 3 a 5 min > 2éme vitesse : 5 à 8 minutes",
     "pieces": [
       {
         "nombre": 2,
@@ -196,7 +200,8 @@
         "quantite": 1000
       },
       {
-        "nom": "Eau",
+        "nom": "eau",
+        "liquid": true,
         "quantite": 975
       },
       {
@@ -210,7 +215,7 @@
     "titre": "Pain bis",
     "tbase": 58,
     "tpate": 23,
-    "petrissage": "Petrissage amélioré (1ére vitesse 3min > Autolyse 1h > 1ére vitesse 2 minutes > 2éme vitesse : 5minutes",
+    "desc": "Petrissage amélioré (1ére vitesse 3min > Autolyse 1h > 1ére vitesse 2 minutes > 2éme vitesse : 5minutes",
     "pieces": [
       {
         "nombre": 2,
@@ -238,7 +243,8 @@
         "quantite": 1000
       },
       {
-        "nom": "Eau",
+        "nom": "eau",
+        "liquid": true,
         "quantite": 1300
       },
       {
@@ -252,7 +258,7 @@
     "titre": "Pain de mie",
     "tbase": 48,
     "tpate": 24,
-    "petrissage": "Petrissage intensifié (1ére vitesse 3min > 2éme vitesse : 8/10 minutes",
+    "desc": "Petrissage intensifié (1ére vitesse 3min > 2éme vitesse : 8/10 minutes",
     "pieces": [
       {
         "nombre": 5,
@@ -278,7 +284,8 @@
         "quantite": 40
       },
       {
-        "nom": "Eau",
+        "nom": "eau",
+        "liquid": true,
         "quantite": 600
       },
       {
@@ -296,7 +303,7 @@
     "titre": "Pain au lait",
     "tbase": 48,
     "tpate": 23,
-    "petrissage": "Petrissage direct",
+    "desc": "Petrissage direct",
     "pieces": [
       {
         "nombre": 10,
@@ -332,6 +339,7 @@
       },
       {
         "nom": "eau",
+        "liquid": true,
         "quantite": 360
       },
       {
@@ -349,7 +357,7 @@
     "titre": "Pain courant sur autolyse",
     "tbase": 62,
     "tpate": 23,
-    "petrissage": "Petrissage direct",
+    "desc": "Petrissage direct",
     "pieces": [
       {
         "nombre": 2,
@@ -373,7 +381,8 @@
         "quantite": 1000
       },
       {
-        "nom": "Eau",
+        "nom": "eau",
+        "liquid": true,
         "quantite": 680
       },
       {
@@ -391,7 +400,7 @@
     "titre": "Pain de campagne sur levain",
     "tbase": 60,
     "tpate": 25,
-    "petrissage": "Petrissage indirect",
+    "desc": "Petrissage indirect",
     "pieces": [
       {
         "nombre": 2,
@@ -414,7 +423,8 @@
         "quantite": 200
       },
       {
-        "nom": "Eau",
+        "nom": "eau",
+        "liquid": true,
         "quantite": 650
       },
       {
@@ -436,7 +446,7 @@
     "titre": "Pate à croissant - V1",
     "tbase": 48,
     "tpate": 23,
-    "petrissage": "Petrissage indirect",
+    "desc": "Petrissage indirect",
     "pieces": [
       {
         "nombre": 12,
@@ -475,6 +485,7 @@
       },
       {
         "nom": "eau",
+        "liquid": true,
         "quantite": 560
       },
       {
@@ -492,7 +503,7 @@
     "titre": "Pate à croissant - V2",
     "tbase": 48,
     "tpate": 23,
-    "petrissage": "Petrissage indirect",
+    "desc": "Petrissage indirect",
     "pieces": [
       {
         "nombre": 12,
@@ -523,6 +534,7 @@
       },
       {
         "nom": "eau",
+        "liquid": true,
         "quantite": 400
       },
       {
@@ -544,7 +556,7 @@
     "titre": "Pain de tradition",
     "tbase": 58,
     "tpate": 23,
-    "petrissage": "Petrissage amélioré > 3min + Autolyse 1h + 2min + 5min",
+    "desc": "Petrissage amélioré > 3min + Autolyse 1h + 2min + 5min",
     "pieces": [
       {
         "nombre": 2,
@@ -568,7 +580,8 @@
         "quantite": 1000
       },
       {
-        "nom": "Eau",
+        "nom": "eau",
+        "liquid": true,
         "quantite": 700
       },
       {
@@ -586,7 +599,7 @@
     "titre": "Pain viennois - v1",
     "tbase": 48,
     "tpate": 23,
-    "petrissage": "Petrissage amélioré",
+    "desc": "Petrissage amélioré",
     "pieces": [
       {
         "nombre": 2,
@@ -621,7 +634,8 @@
         "quantite": 100
       },
       {
-        "nom": "Eau",
+        "nom": "eau",
+        "liquid": true,
         "quantite": 430
       },
       {
@@ -639,7 +653,7 @@
     "titre": "Pain viennois - V2",
     "tbase": 48,
     "tpate": 23,
-    "petrissage": "3 minutes frasage, 3 minutes soufflage, ajout du beurre, 3 minutes soufflage.",
+    "desc": "3 minutes frasage, 3 minutes soufflage, ajout du beurre, 3 minutes soufflage.",
     "pieces": [
       {
         "nombre": 2,
@@ -674,7 +688,8 @@
         "quantite": 150
       },
       {
-        "nom": "Eau",
+        "nom": "eau",
+        "liquid": true,
         "quantite": 480
       },
       {
@@ -692,7 +707,7 @@
     "titre": "Pain au cacao",
     "tbase": 58,
     "tpate": 24,
-    "petrissage": "Petrissage amélioré",
+    "desc": "Petrissage amélioré",
     "pieces": [
       {
         "nombre": 6,
@@ -743,7 +758,8 @@
         "quantite": 120
       },
       {
-        "nom": "Eau",
+        "nom": "eau",
+        "liquid": true,
         "quantite": 600
       }
     ]
@@ -753,7 +769,7 @@
     "titre": "Pain au miel",
     "tbase": 58,
     "tpate": 24,
-    "petrissage": "Petrissage amélioré",
+    "desc": "Petrissage amélioré",
     "pieces": [
       {
         "nombre": 10,
@@ -783,7 +799,8 @@
         "quantite": 180
       },
       {
-        "nom": "Eau",
+        "nom": "eau",
+        "liquid": true,
         "quantite": 7000
       }
     ]
@@ -793,7 +810,7 @@
     "titre": "Pain Aromatiques",
     "tbase": 58,
     "tpate": 24,
-    "petrissage": "Petrissage amélioré",
+    "desc": "Petrissage amélioré",
     "pieces": [
       {
         "nombre": 10,
@@ -819,7 +836,8 @@
         "quantite": 18
       },
       {
-        "nom": "Eau",
+        "nom": "eau",
+        "liquid": true,
         "quantite": 620
       },
       {

@@ -35,24 +35,36 @@ export const PanemContextProvider = (props) => {
     });
   }
 
+  async function loadDefaultRecipes() {
+    try {
+      const recipesModule = await import(`./datarecipes_${i18n.language}.json`);
+      const defaultRecipes = Object.values(recipesModule.default);
+      setAllStoredRecipes(defaultRecipes);
+      setLocalData(`recipes_${i18n.language}`, defaultRecipes);
+      setRecipedata(defaultRecipes[0]); // ou setIndexSelected(0); selon vos besoins
+      return defaultRecipes;
+    } catch (error) {
+      console.error(
+        "Erreur lors du chargement des recettes par défaut:",
+        error
+      );
+      return []; // Retourne un tableau vide en cas d'erreur
+    }
+  }
+
   useEffect(() => {
     async function fetchRecipes() {
       let localData = getLocalData(`recipes_${i18n.language}`);
       let newData = [];
       if (!localData) {
-        try {
-          const recipesModule = await import(
-            `./datarecipes_${i18n.language}.json`
-          );
-          newData = Object.values(recipesModule.default || localData);
-          updateStoredRecipes(newData);
-          setLocalData(`recipes_${i18n.language}`, newData);
-        } catch (error) {
-          console.error("Erreur lors de l'importation des recettes:", error);
-        }
+        await loadDefaultRecipes();
       } else {
-        newData = Object.values(localData);
-        updateStoredRecipes(newData);
+        if (localData.length === 0) {
+          await loadDefaultRecipes();
+        } else {
+          newData = Object.values(localData);
+          updateStoredRecipes(newData);
+        }
       }
       setRecipedata(newData[indexSelected]);
     }
@@ -62,18 +74,35 @@ export const PanemContextProvider = (props) => {
 
   useEffect(() => {
     setUrl(indexSelected);
-    if (recipedata.length > 0) {
-      const newRecipeData = recipedata[indexSelected];
-      if (recipedata !== newRecipeData) {
+    if (Array.isArray(allStoredRecipes) && allStoredRecipes.length > 0) {
+      const newRecipeData = allStoredRecipes[indexSelected];
+      if (newRecipeData && recipedata !== newRecipeData) {
         setRecipedata(newRecipeData);
       }
     }
   }, [indexSelected, recipedata]);
 
+  const addNewRecipe = (recipe) => {
+    const updatedRecipes = [...allStoredRecipes, recipe];
+    setAllStoredRecipes(updatedRecipes);
+    setLocalData(`recipes_${i18n.language}`, updatedRecipes);
+  };
+
   function updateAllRecipes(updatedRecipe, index) {
     const updatedRecipes = [...allStoredRecipes];
     updatedRecipes[index] = updatedRecipe;
     setLocalData(`recipes_${i18n.language}`, updatedRecipes);
+  }
+
+  function resetRecipesToDefault() {
+    loadDefaultRecipes();
+    /*
+    // Charger les recettes par défaut (si disponibles) ou simplement réinitialiser le tableau
+    let defaultRecipes = []; // Remplacer par la logique de chargement des recettes par défaut
+    setAllStoredRecipes(defaultRecipes);
+    setLocalData(`recipes_${i18n.language}`, defaultRecipes);
+    setIndexSelected(0); // Réinitialiser l'index de recette sélectionné
+    */
   }
 
   function updateRecipeData(newData) {
@@ -107,6 +136,8 @@ export const PanemContextProvider = (props) => {
     setIndexSelected,
     totaldemande,
     setTotaldemande,
+    addNewRecipe,
+    resetRecipesToDefault,
   };
 
   return (

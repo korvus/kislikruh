@@ -6,16 +6,25 @@ import Create from "./recipe/create.js";
 import "../style/styleRecipes.css";
 
 const Recipes = () => {
-  const { setIndexSelected, indexSelected, recipes, removeOneRecipe } =
-    useContext(PanemContext);
+  const {
+    setIndexSelected,
+    indexSelected,
+    recipes,
+    removeOneRecipe,
+    resetRecipesToDefault,
+  } = useContext(PanemContext);
   const [addRcp, setAddRcp] = useState(false);
 
   const { t } = useTranslation();
   /* Just usefull for refresh the component when lang is changed */
 
+  if (!recipes || recipes.length === 0) {
+    return <div>...</div>;
+  }
+
   const deleteRecipe = (e) => {
     const keyId = parseInt(e.currentTarget.dataset.index);
-    if (window.confirm("Êtes vous sûr de vouloir supprimer ?")) {
+    if (window.confirm(t("areYouSureToSuppress"))) {
       removeOneRecipe(keyId);
     }
   };
@@ -30,9 +39,11 @@ const Recipes = () => {
 
   const reinitRecipe = () => {
     if (window.confirm(t("areYouSureToReinitRecipe"))) {
-      console.log("reinitRecipe");
+      resetRecipesToDefault();
     }
   };
+
+  if (recipes.length === 0) return;
 
   for (let a = 0; a < recipes.length; a++) {
     const title = `${recipes[a].titre} :`;
@@ -91,7 +102,7 @@ const Recipes = () => {
           {t("reinitRecipe")}
         </button>
       </menu>
-      <Create addRcp={addRcp} setAddRcp={setAddRcp} />
+      {addRcp && <Create addRcp={addRcp} setAddRcp={setAddRcp} />}
     </section>
   );
 };

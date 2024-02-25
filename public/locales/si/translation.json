@@ -8,5 +8,10 @@
   "add": "dodati",
   "suppress": "izbrisati",
   "suppressThisRecipe": "Suppress this recipe",
-  "addRecipe": "dodajte recept"
+  "addRecipe": "dodajte recept",
+  "reinitRecipe": "ponastavite recepte",
+  "areYouSureToReinitRecipe": "Ali si prepričan ? S tem boste odstranili vse spremembe, ki ste jih morda naredili.",
+  "areYouSureToSuppress": "Ali ste prepričani, da želite izbrisati?",
+  "Naming the recipe is mandatory": "Poimenovanje recepta je obvezno",
+  "Recipe must have at least 2 ingredients !": "Recept mora vsebovati vsaj dve sestavini"
 }

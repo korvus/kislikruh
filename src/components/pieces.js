@@ -154,13 +154,15 @@ const Pieces = () => {
                 <b>{nbprd}</b>
                 <button onClick={() => setNbprd(nbprd + 1)}>+</button>
               </fieldset>
-              <input
-                onClick={() => setNewprd()}
-                type="submit"
-                className="submit"
-                value={t("add")}
-              />
-              <span onClick={() => setAddPrd(false)}>{t("annuler")}</span>
+              <div className="submitBt">
+                <input
+                  onClick={() => setNewprd()}
+                  type="submit"
+                  className="submit"
+                  value={t("add")}
+                />
+                <span onClick={() => setAddPrd(false)}>{t("annuler")}</span>
+              </div>
             </div>
           </div>
         </section>

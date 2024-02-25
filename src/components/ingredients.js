@@ -11,9 +11,8 @@ import "../style/styleIngredients.css";
 import QuantiteParIngredients from "./ingredients/pesee";
 import Entete from "./ingredients/header";
 import { useTranslation } from "react-i18next";
-import { roundTo, viennoiserieDetector } from "./functions.js";
+import { roundTo, viennoiserieDetector, farineDetector } from "./functions.js";
 
-const farineDetector = new RegExp(/farine/im);
 const eauDetector = new RegExp(/eau/im);
 
 const Ingredients = () => {
