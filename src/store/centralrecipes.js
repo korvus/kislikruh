@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect, useCallback, createContext } from "react";
 import { useTranslation } from "react-i18next";
 
 export const PanemContext = createContext(null);
@@ -21,6 +21,7 @@ export const PanemContextProvider = (props) => {
     pieces: [],
     ingredientsbase: [],
   });
+  const [isLoading, setIsLoading] = useState(true);
   const [allStoredRecipes, setAllStoredRecipes] = useState([]);
   const [indexSelected, setIndexSelected] = useState(0);
   const [totaldemande, setTotaldemande] = useState(0);
@@ -35,42 +36,38 @@ export const PanemContextProvider = (props) => {
     });
   }
 
-  async function loadDefaultRecipes() {
+  const loadDefaultRecipes = useCallback(async () => {
     try {
-      const recipesModule = await import(`./datarecipes_${i18n.language}.json`);
+      const languageCode = i18n.language.split('-')[0];
+      const recipesModule = await import(`./datarecipes_${languageCode}.json`);
       const defaultRecipes = Object.values(recipesModule.default);
       setAllStoredRecipes(defaultRecipes);
-      setLocalData(`recipes_${i18n.language}`, defaultRecipes);
-      setRecipedata(defaultRecipes[0]); // ou setIndexSelected(0); selon vos besoins
-      return defaultRecipes;
+      setLocalData(`recipes_${languageCode}`, defaultRecipes);
+      return defaultRecipes; // Pas besoin de définir l'état ici si on le définit dans useEffect
     } catch (error) {
-      console.error(
-        "Erreur lors du chargement des recettes par défaut:",
-        error
-      );
+      console.error("Erreur lors du chargement des recettes par défaut:", error);
       return []; // Retourne un tableau vide en cas d'erreur
     }
-  }
+  }, [i18n.language]);
 
   useEffect(() => {
     async function fetchRecipes() {
-      let localData = getLocalData(`recipes_${i18n.language}`);
+      let localData = getLocalData(`recipes_${i18n.language.split('-')[0]}`);
       let newData = [];
-      if (!localData) {
-        await loadDefaultRecipes();
+      if (!localData || localData.length === 0) {
+        newData = await loadDefaultRecipes(); // Assurez-vous que loadDefaultRecipes retourne les nouvelles données
       } else {
-        if (localData.length === 0) {
-          await loadDefaultRecipes();
-        } else {
-          newData = Object.values(localData);
-          updateStoredRecipes(newData);
-        }
+        newData = Object.values(localData);
       }
-      setRecipedata(newData[indexSelected]);
+      updateStoredRecipes(newData); // Mettez à jour le state avec les nouvelles données, que ce soit par défaut ou locales
+      if (newData.length > 0) {
+        setRecipedata(newData[indexSelected]);
+      }
+      setIsLoading(false); // Déplacez setIsLoading ici pour couvrir tous les scénarios
     }
 
     fetchRecipes();
-  }, [i18n.language, indexSelected]);
+  }, [i18n.language, indexSelected, loadDefaultRecipes]);
 
   useEffect(() => {
     setUrl(indexSelected);
@@ -80,7 +77,7 @@ export const PanemContextProvider = (props) => {
         setRecipedata(newRecipeData);
       }
     }
-  }, [indexSelected, recipedata]);
+  }, [allStoredRecipes, indexSelected, recipedata]);
 
   const addNewRecipe = (recipe) => {
     const updatedRecipes = [...allStoredRecipes, recipe];
@@ -129,6 +126,7 @@ export const PanemContextProvider = (props) => {
 
   const provider = {
     recipes: allStoredRecipes,
+    isLoading,
     updateRecipeData,
     removeOneRecipe,
     indexSelected,

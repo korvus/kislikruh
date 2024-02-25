@@ -8,9 +8,10 @@ import Petrissage from "./petrissage.js";
 import Temperature from "./temperature.js";
 
 function Proportions() {
-  const { recipes } = useContext(PanemContext);
 
-  if (!recipes || recipes.length === 0) {
+  const { recipes, isLoading } = useContext(PanemContext);
+
+  if (isLoading || !recipes || recipes.length === 0) {
     return <div className="App">loading...</div>;
   }
 
