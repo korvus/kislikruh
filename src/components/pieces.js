@@ -67,7 +67,8 @@ const Pieces = () => {
     // Si vous avez un calcul du poids total des ingrédients
     const totalWeight = recipedata.ingredientsbase.reduce((sum, ingredient) => sum + ingredient.quantite, 0);
     setTotalWeightIngredients(totalWeight);
-    setAddRcp(!addRcp);
+    setAddRcp(true);
+    // setAddRcp(!addRcp);
   };
 
   // Chaque fois que recipedata est update, il faut mettre a jour le state.
