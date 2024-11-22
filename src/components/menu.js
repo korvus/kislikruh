@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { FaLanguage } from "react-icons/fa";
 import Select, { components } from "react-select";
-import "../style/styleMenu.css";
+// import "../style/styleMenu.css";
 
 const { Option } = components;
 

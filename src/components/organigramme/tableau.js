@@ -104,9 +104,9 @@ const Recipes = () => {
                   onMouseMove={() => {
                     selecthover(i * 4 + 0, a);
                   }}
-                  className={`quarter first ${funcIsSelected(i * 4 + 0, a)} step-${listSchedule[a][(i*4)+0] === "?" ? "_" : listSchedule[a][(i*4)+0]}`}
+                  className={`quarter first ${funcIsSelected(i * 4 + 0, a)} step-${listSchedule[a][(i * 4) + 0] === "?" ? "_" : listSchedule[a][(i * 4) + 0]}`}
                 >
-                  {listSchedule[a][(i*4)+0]}
+                  {listSchedule[a][(i * 4) + 0]}
                 </div>
                 <div
                   onMouseUp={() => {
@@ -118,9 +118,9 @@ const Recipes = () => {
                   onMouseMove={() => {
                     selecthover(i * 4 + 1, a);
                   }}
-                  className={`quarter second ${funcIsSelected(i * 4 + 1, a)} step-${listSchedule[a][(i*4)+1] === "?" ? "_" : listSchedule[a][(i*4)+1]}`}
+                  className={`quarter second ${funcIsSelected(i * 4 + 1, a)} step-${listSchedule[a][(i * 4) + 1] === "?" ? "_" : listSchedule[a][(i * 4) + 1]}`}
                 >
-                  {listSchedule[a][(i*4)+1]}
+                  {listSchedule[a][(i * 4) + 1]}
                 </div>
                 <div
                   onMouseUp={() => {
@@ -132,9 +132,9 @@ const Recipes = () => {
                   onMouseMove={() => {
                     selecthover(i * 4 + 2, a);
                   }}
-                  className={`quarter third ${funcIsSelected(i * 4 + 2, a)} step-${listSchedule[a][(i*4)+2] === "?" ? "_" : listSchedule[a][(i*4)+2]}`}
+                  className={`quarter third ${funcIsSelected(i * 4 + 2, a)} step-${listSchedule[a][(i * 4) + 2] === "?" ? "_" : listSchedule[a][(i * 4) + 2]}`}
                 >
-                  {listSchedule[a][(i*4)+2]}
+                  {listSchedule[a][(i * 4) + 2]}
                 </div>
                 <div
                   onMouseUp={() => {
@@ -146,9 +146,9 @@ const Recipes = () => {
                   onMouseMove={() => {
                     selecthover(i * 4 + 3, a);
                   }}
-                  className={`quarter last ${funcIsSelected(i * 4 + 3, a)} step-${listSchedule[a][(i*4)+3] === "?" ? "_" : listSchedule[a][(i*4)+3]}`}
+                  className={`quarter last ${funcIsSelected(i * 4 + 3, a)} step-${listSchedule[a][(i * 4) + 3] === "?" ? "_" : listSchedule[a][(i * 4) + 3]}`}
                 >
-                  {listSchedule[a][(i*4)+3]}
+                  {listSchedule[a][(i * 4) + 3]}
                 </div>
               </Fragment>
             )}

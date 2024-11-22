@@ -26,7 +26,7 @@ div.pieces {
     list-style: "=";
 }
 
-.pieces ul li.nombre{
+.pieces ul li.nombre {
     list-style: "x";
 }
 
@@ -44,10 +44,39 @@ div.pieces {
     cursor: pointer;
 }
 
-.pieces h2{
+.duplicate {
+    display: inline-block;
+    margin-top: 8px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.titleLink {
+    color: #222;
+}
+
+.titleLink svg {
+    margin-left: 5px;
+}
+
+
+.duplicate input {
+    background: none;
+    border: none;
+    color: #777;
+    box-sizing: content-box;
+    text-decoration: underline;
+    padding: 0 0 0 3px;
+    top: -2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.pieces h2 {
     margin: 0;
     padding: 5px;
     font-size: 16px;
+    float: left;
 }
 
 .pieces .poidTotal {
@@ -106,7 +135,8 @@ fieldset label {
 
 .formAddPrd .submit {
     float: left;
-    margin: 14px 0 14px 2px;
+    clear: left;
+    margin: 0 0 14px 2px;
     padding: 5px 15px;
     cursor: pointer;
     align-self: flex-start;
@@ -123,6 +153,12 @@ fieldset label {
 }
 
 .formAddPrd .submit+span {
+    float: left;
+    color: #999;
+    margin-left: 10px;
+    padding-top: 4px;
+    cursor: pointer;
+    /*
     align-items: center;
     display: flex;
     color: #999;
@@ -130,6 +166,7 @@ fieldset label {
     padding-top: 4px;
     cursor: pointer;
     margin-bottom: 6px;
+    */
 }
 
 .pieces span {
@@ -137,11 +174,11 @@ fieldset label {
 }
 
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 900px) {
     .recipe {
         margin-bottom: 10px;
     }
-    
+
     .recipe span b {
         display: block;
         clear: both;
@@ -152,8 +189,7 @@ fieldset label {
         padding-bottom: 10px;
     }
 
-    div.pieces ul{
+    div.pieces ul {
         padding-left: 20px;
     }
 }
-  

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { PanemContext } from "../store/centralrecipes";
-import "../style/stylePetrissage.css";
+// import "../style/stylePetrissage.css";
 
 const Recipes = () => {
   const { recipedata } = useContext(PanemContext);

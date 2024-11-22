@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import Image from 'next/image';
 import trashIcon from "../../style/trash.svg";
 import { viennoiserieDetector } from "./../functions.js";
 
@@ -11,7 +12,7 @@ const Supp = ({ action, ingredient }) => {
       className="supprimer"
       title="retirer de la liste des produits"
     >
-      <img width="15" src={trashIcon} alt="supprimer" />
+      <Image width="15" src={trashIcon} alt="supprimer" />
     </button>
   );
 };
@@ -35,7 +36,6 @@ const QuantiteParIngredients = ({
   hydra,
   ingredient,
   fonctions,
-  detrempe,
 }) => {
   let ingredientType = "undefined";
   if (ingredient.type !== undefined) {
@@ -50,30 +50,6 @@ const QuantiteParIngredients = ({
       <Fragment>
         {ingredient.nom}
         <span className="hydratation">({hydra}%)</span>
-      </Fragment>
-    );
-  }
-
-  if (detrempe > 0 && viennoiserieDetector.test(label)) {
-    const { getWithcoef } = fonctions;
-    return (
-      <Fragment>
-        <li key={iteration + "chaine"} className="detrempe">
-          <label>Poid détrempe</label>
-          <div className="base">{detrempe}</div>
-          <div className="coef"></div>
-          <div className="recette">{getWithcoef(detrempe)}</div>
-        </li>
-        <li key={iteration}>
-          <label>{label}</label>
-          <FirstCol ingredientType={ingredientType} ingredient={ingredient} />
-          <div className="coef"></div>
-          <SecondCol
-            fonctions={fonctions}
-            ingredientType={ingredientType}
-            ingredient={ingredient}
-          />
-        </li>
       </Fragment>
     );
   }

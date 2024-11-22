@@ -780,28 +780,28 @@
     "ingredientsbase": [
       {
         "nom": "Farine T65",
-        "quantite": 10000
+        "quantite": 1000
       },
       {
         "nom": "Farine Rex seigle",
-        "quantite": 5000
+        "quantite": 500
       },
       {
         "nom": "Pâte fermentée",
-        "quantite": 5500
+        "quantite": 550
       },
       {
         "nom": "miel",
-        "quantite": 750
+        "quantite": 75
       },
       {
         "nom": "sel",
-        "quantite": 180
+        "quantite": 18
       },
       {
         "nom": "eau",
         "liquid": true,
-        "quantite": 7000
+        "quantite": 700
       }
     ]
   },

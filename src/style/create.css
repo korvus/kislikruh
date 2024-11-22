@@ -4,7 +4,7 @@
   flex-direction: column;
 }
 
-.alreadyCooked > span {
+.alreadyCooked>span {
   color: #555;
 }
 
@@ -44,7 +44,7 @@
   margin-bottom: 5px;
 }
 
-.composition .ingredients label{
+.composition .ingredients label {
   position: relative;
   top: 5px;
 }
@@ -104,9 +104,17 @@
   display: inline-block;
 }
 
-.metaInfos .eggCalculator > button {
+.metaInfos .eggCalculator>button {
   background: none;
   border: none;
   border: 1px solid #666;
   padding: 4px 16px 0px;
+}
+
+.inputSelect {
+  width: 100%;
+  margin: 0;
+  font-Size: 14px;
+  min-width: 335px;
+  max-width: 250px;
 }

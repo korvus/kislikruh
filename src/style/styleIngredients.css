@@ -8,11 +8,13 @@
     width: 900px;
 }
 
+/*
 .ingredients label {
     display: inline-block;
     padding-right: 5px;
     top: 10px;
 }
+*/
 
 .ingredients ul li {
     display: flex;
@@ -33,6 +35,15 @@
     background: #eee;
 }
 
+.ingredients ul li.hydratationLine {
+    border: 1px solid #888;
+    background: #fff;
+    margin-left: 0;
+}
+
+/* .ingredients ul li.hydratation */
+
+
 .ingredients ul li.header {
     border-bottom: 1px solid #000;
     background: #cac1ad;
@@ -41,6 +52,7 @@
 .ingredients ul li.addIngredient {
     background: none;
     display: inherit;
+    margin-left: 0;
 }
 
 .addIngredient button {
@@ -53,10 +65,16 @@
     float: left;
 }
 
-.ingredients ul li > *{
-    flex: 1 100%;
+.ingredients ul li>* {
+    flex: 1;
     align-self: flex-start;
     padding: 0 5px;
+    margin: 0;
+}
+
+.ingredients ul li>.expanded {
+    flex: 2;
+    align-self: center;
 }
 
 .ingredients li .supprimer {
@@ -67,7 +85,7 @@
 }
 
 .ingredients li .supprimer:hover,
-.ingredients li .supprimer:focus  {
+.ingredients li .supprimer:focus {
     opacity: 1;
 }
 
@@ -83,7 +101,7 @@
     vertical-align: middle;
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 900px) {
     .ingredients {
         width: auto;
     }
@@ -92,5 +110,4 @@
         padding: 0;
         width: 100%;
     }
-  }
-  
+}

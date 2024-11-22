@@ -39,7 +39,7 @@ export const PanemContextProvider = (props) => {
   const loadDefaultRecipes = useCallback(async () => {
     try {
       const languageCode = i18n.language.split('-')[0];
-      const recipesModule = await import(`./datarecipes_${languageCode}.json`);
+      const recipesModule = await import(`../data/datarecipes_${languageCode}.json`);
       const defaultRecipes = Object.values(recipesModule.default);
       setAllStoredRecipes(defaultRecipes);
       setLocalData(`recipes_${languageCode}`, defaultRecipes);

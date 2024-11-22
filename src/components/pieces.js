@@ -5,17 +5,22 @@ import React, {
   useMemo,
   useEffect,
 } from "react";
+import Image from 'next/image';
 import { PanemContext } from "../store/centralrecipes";
 import { useTranslation } from "react-i18next";
 import trashIcon from "../style/trash.svg";
+import duplicateIcon from "../style/duplicate.svg";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { useCreateContext } from './recipe/CreateContext';
+import { eggDetector } from "./functions";
 
 const multiplication = (a, b) => {
   return a * b;
 };
 
 const Pieces = () => {
-  const { recipedata, setTotaldemande, updateRecipeData } =
-    useContext(PanemContext);
+  const { recipedata, setTotaldemande, updateRecipeData } = useContext(PanemContext);
+  const { addRcp, setAddRcp, setName, setDesc, setTbase, setTpate, setPieces, setIngredientsBase, setTotalWeightIngredients } = useCreateContext();
 
   const { t } = useTranslation();
 
@@ -30,12 +35,40 @@ const Pieces = () => {
     let total =
       qtt && qtt.pieces
         ? qtt.pieces.reduce(
-            (somme, piece) => somme + multiplication(piece.nombre, piece.poid),
-            0
-          )
+          (somme, piece) => somme + multiplication(piece.nombre, piece.poid),
+          0
+        )
         : 0;
     return total;
   }, [qtt]);
+
+
+  const addRecipe = () => {
+
+    const updatedIngredients = recipedata.ingredientsbase.map((ingredient) => {
+      if (eggDetector.test(ingredient.nom)) {
+        const eggWeight = 58;
+        return {
+          ...ingredient,
+          nbEggs: Math.round(ingredient.quantite / eggWeight) || 0,
+        };
+      }
+      return ingredient;
+    });
+
+    // Utilisation des setters pour remplir les states avec les données de la recette à dupliquer
+    setName(recipedata.titre);
+    setDesc(recipedata.desc || ""); // Si la description est optionnelle
+    setTbase(recipedata.tbase);
+    setTpate(recipedata.tpate);
+    setPieces(recipedata.pieces);
+    setIngredientsBase(updatedIngredients);
+
+    // Si vous avez un calcul du poids total des ingrédients
+    const totalWeight = recipedata.ingredientsbase.reduce((sum, ingredient) => sum + ingredient.quantite, 0);
+    setTotalWeightIngredients(totalWeight);
+    setAddRcp(!addRcp);
+  };
 
   // Chaque fois que recipedata est update, il faut mettre a jour le state.
   useEffect(() => {
@@ -92,7 +125,24 @@ const Pieces = () => {
       {qtt && (
         <section className="existing">
           <div className="pieces">
-            <h2>{qtt.titre}</h2>
+            <h2>
+              {recipedata.url ? (
+                <a className='titleLink' title={recipedata.url} target="_blank" href={recipedata.url} rel="noreferrer">
+                  {qtt.titre}
+                  <FaExternalLinkAlt size={13} />
+                </a>
+              ) : (
+                <span>{qtt.titre}</span> // Affiche seulement le titre si l'URL n'est pas présente
+              )}
+            </h2>
+            <div className="submitBt duplicate">
+              <Image width="15" aria-hidden="true" src={duplicateIcon} alt={t("duplicate")} />
+              <input
+                onClick={() => addRecipe()}
+                type="submit"
+                value={t("duplicate")}
+              />
+            </div>
             <ul>
               {qtt.pieces.map((piece, i) => (
                 <li key={i}>
@@ -108,7 +158,7 @@ const Pieces = () => {
                     className="supprimer"
                     title="retirer de la liste des produits"
                   >
-                    <img width="15" src={trashIcon} alt={t("suppress")} />
+                    <Image width="15" src={trashIcon} alt={t("suppress")} />
                   </button>
                 </li>
               ))}

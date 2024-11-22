@@ -64,12 +64,19 @@
 }
 
 .existing menu {
-  display: block;
-  padding-left: 40px
+  /* display: block; */
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .existing menu .bt {
-  margin-left: 10px
+  margin-left: 10px;
+}
+
+.existing menu .bt:last-child {
+  margin-left: auto;
 }
 
 .existingrecipes .formAddPrd {
@@ -90,6 +97,14 @@
   cursor: pointer;
 }
 
+.composition .nombre {
+  margin-left: 5px;
+}
+
 .composition .ingredients input {
   margin: 5px 2px 5px 5px;
+}
+
+.composition .ingredients .inputSelect {
+  margin-left: 0;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../style/infobulle.css";
+// import "../../style/infobulle.css";
 
 const Infobulle = ({ children, text }) => {
   const [show, setShow] = useState(false);

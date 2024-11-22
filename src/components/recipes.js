@@ -1,11 +1,22 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { PanemContext } from "../store/centralrecipes";
 import { useTranslation } from "react-i18next";
 import { BsTrash } from "react-icons/bs";
 import Create from "./recipe/create.js";
-import "../style/styleRecipes.css";
+// import "../style/styleRecipes.css";
+import { FaDownload } from "react-icons/fa";
+import { loadRecipes } from './utils/functionsRecipes';
+
+import { useCreateContext } from './recipe/CreateContext';
 
 const Recipes = () => {
+
+  const { i18n } = useTranslation();
+
+  const {
+    addRcp, setAddRcp
+  } = useCreateContext();
+
   const {
     setIndexSelected,
     indexSelected,
@@ -13,7 +24,6 @@ const Recipes = () => {
     removeOneRecipe,
     resetRecipesToDefault,
   } = useContext(PanemContext);
-  const [addRcp, setAddRcp] = useState(false);
 
   const { t } = useTranslation();
   /* Just usefull for refresh the component when lang is changed */
@@ -33,7 +43,7 @@ const Recipes = () => {
 
   if (recipes.length === 0) return;
 
-  const addIngredient = () => {
+  const addRecipe = () => {
     setAddRcp(!addRcp);
   };
 
@@ -95,11 +105,14 @@ const Recipes = () => {
     <section className="existing existingrecipes">
       {recipes.length > 0 && <ul className="recipes">{recipe}</ul>}
       <menu>
-        <button onClick={() => addIngredient()} className="bt">
+        <button onClick={() => addRecipe()} className="bt">
           {t("addRecipe")}
         </button>
         <button onClick={() => reinitRecipe()} className="bt">
           {t("reinitRecipe")}
+        </button>
+        <button onClick={() => loadRecipes(i18n)} className="bt">
+          <FaDownload /> {t("exportRecipes")}
         </button>
       </menu>
       {addRcp && <Create addRcp={addRcp} setAddRcp={setAddRcp} />}

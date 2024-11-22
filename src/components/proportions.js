@@ -6,6 +6,7 @@ import Ingredients from "./ingredients.js";
 import Menu from "./menu.js";
 import Petrissage from "./petrissage.js";
 import Temperature from "./temperature.js";
+import { CreateProvider } from './recipe/CreateContext';
 
 function Proportions() {
 
@@ -16,26 +17,28 @@ function Proportions() {
   }
 
   return (
-    <div className="App">
-      <section className="menu">
-        <Menu page="proportions" />
-      </section>
-      <section className="etalon">
-        <Recipes />
-      </section>
-      <section className="pieces">
-        <Pieces />
-      </section>
-      <section className="ingredients">
-        <Ingredients />
-      </section>
-      <section className="timing">
-        <Petrissage />
-      </section>
-      <section className="temperature">
-        <Temperature />
-      </section>
-    </div>
+    <CreateProvider>
+      <div className="App">
+        <section className="menu">
+          <Menu page="proportions" />
+        </section>
+        <section className="etalon">
+          <Recipes />
+        </section>
+        <section className="pieces">
+          <Pieces />
+        </section>
+        <section className="ingredients">
+          <Ingredients />
+        </section>
+        <section className="timing">
+          <Petrissage />
+        </section>
+        <section className="temperature">
+          <Temperature />
+        </section>
+      </div>
+    </CreateProvider>
   );
 }
 

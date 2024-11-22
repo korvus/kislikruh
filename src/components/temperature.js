@@ -1,7 +1,7 @@
 import React, { Fragment, useContext, useState, useEffect } from "react";
 // import datarecipes from "../store/datarecipes.json";
 import { PanemContext } from "../store/centralrecipes";
-import "../style/styleTemperature.css";
+// import "../style/styleTemperature.css";
 
 /*
 const getAlreadyRegistred = () => {

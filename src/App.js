@@ -1,3 +1,19 @@
+// pages/_app.js
+// import '../src/style/main.css';
+// import '../src/style/page.css';
+// import '../src/i18n';
+import { PanemContextProvider } from '../src/store/centralrecipes';
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <PanemContextProvider>
+      <Component {...pageProps} />
+    </PanemContextProvider>
+  );
+}
+
+export default MyApp;
+/* ============================================================================================= *
 import "./style/main.css";
 import "./style/page.css";
 import "./i18n";
@@ -16,3 +32,4 @@ function App() {
 }
 
 export default App;
+*/
