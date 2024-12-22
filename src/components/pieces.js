@@ -11,8 +11,10 @@ import { useTranslation } from "react-i18next";
 import trashIcon from "../style/trash.svg";
 import duplicateIcon from "../style/duplicate.svg";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import { RiListSettingsFill } from "react-icons/ri";
 import { useCreateContext } from './recipe/CreateContext';
 import { eggDetector } from "./functions";
+import EditRecipe from './recipe/EditRecipe';
 
 const multiplication = (a, b) => {
   return a * b;
@@ -20,7 +22,7 @@ const multiplication = (a, b) => {
 
 const Pieces = () => {
   const { recipedata, setTotaldemande, updateRecipeData } = useContext(PanemContext);
-  const { addRcp, setAddRcp, setName, setDesc, setTbase, setTpate, setPieces, setIngredientsBase, setTotalWeightIngredients } = useCreateContext();
+  const { setAddRcp, setName, setDesc, setTbase, setTpate, setEditRcp, editRcp, setPieces, setIngredientsBase, setTotalWeightIngredients } = useCreateContext();
 
   const { t } = useTranslation();
 
@@ -42,9 +44,12 @@ const Pieces = () => {
     return total;
   }, [qtt]);
 
+  const editRecipe = () => {
+    setEditRcp(true);
+  }
+
 
   const addRecipe = () => {
-
     const updatedIngredients = recipedata.ingredientsbase.map((ingredient) => {
       if (eggDetector.test(ingredient.nom)) {
         const eggWeight = 58;
@@ -56,22 +61,18 @@ const Pieces = () => {
       return ingredient;
     });
 
-    // Utilisation des setters pour remplir les states avec les données de la recette à dupliquer
     setName(recipedata.titre);
-    setDesc(recipedata.desc || ""); // Si la description est optionnelle
+    setDesc(recipedata.desc || "");
     setTbase(recipedata.tbase);
     setTpate(recipedata.tpate);
     setPieces(recipedata.pieces);
     setIngredientsBase(updatedIngredients);
 
-    // Si vous avez un calcul du poids total des ingrédients
     const totalWeight = recipedata.ingredientsbase.reduce((sum, ingredient) => sum + ingredient.quantite, 0);
     setTotalWeightIngredients(totalWeight);
     setAddRcp(true);
-    // setAddRcp(!addRcp);
   };
 
-  // Chaque fois que recipedata est update, il faut mettre a jour le state.
   useEffect(() => {
     setQtt(recipedata);
     setTotaldemande(multiplication(portions, total));
@@ -133,9 +134,17 @@ const Pieces = () => {
                   <FaExternalLinkAlt size={13} />
                 </a>
               ) : (
-                <span>{qtt.titre}</span> // Affiche seulement le titre si l'URL n'est pas présente
+                <span>{qtt.titre}</span>
               )}
             </h2>
+            <div className="submitBt duplicate">
+              <RiListSettingsFill />
+              <input
+                onClick={() => editRecipe()}
+                type="submit"
+                value={t("edit")}
+              />
+            </div>
             <div className="submitBt duplicate">
               <Image width="15" aria-hidden="true" src={duplicateIcon} alt={t("duplicate")} />
               <input
@@ -144,6 +153,9 @@ const Pieces = () => {
                 value={t("duplicate")}
               />
             </div>
+            {editRcp && (
+              <EditRecipe />
+            )}
             <ul>
               {qtt.pieces.map((piece, i) => (
                 <li key={i}>

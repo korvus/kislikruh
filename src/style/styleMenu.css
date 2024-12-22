@@ -1,5 +1,6 @@
 section.menu {
   border-bottom: 1px solid #000;
+  overflow: visible;
 }
 
 div.menu {

@@ -1,63 +1,99 @@
-import React, { useState, useEffect } from 'react';
-import CreatableSelect from 'react-select/creatable';
+import React, { useState, useRef } from "react";
 
-const EditableCreatableSelect = ({
-    options,
-    value,
+const EditableAutocompleteInput = ({
+    options = [],
+    value = null,
     onChange,
-    placeholder,
-    styles,
-    isDisabled
+    placeholder = "Saisir ou choisir un ingrédient",
 }) => {
-    const [isEditing, setIsEditing] = useState(false);
-    const [inputValue, setInputValue] = useState(value ? value.label : "");
+    const [inputValue, setInputValue] = useState(value?.label || "");
+    const [showSuggestions, setShowSuggestions] = useState(false);
+    const inputRef = useRef(null);
 
-    // Mettre à jour la valeur d'entrée si la valeur du select change
-    useEffect(() => {
-        if (value && value.label !== inputValue) {
-            setInputValue(value.label);
-        }
-    }, [inputValue, value]);
+    // Filtrer les options en fonction de la saisie
+    const filteredOptions = options.filter((option) => {
+        const label = typeof option.label === "string" ? option.label.toLowerCase() : "";
+        const input = typeof inputValue === "string" ? inputValue.toLowerCase() : "";
+        return label.includes(input);
+    });
 
-    // Gérer la validation de l'entrée et revenir au mode Select
+    const handleInputChange = (e) => {
+        const newValue = e.target.value;
+        setInputValue(newValue);
+        setShowSuggestions(true);
+        onChange({ label: newValue, value: newValue });
+    };
+
+    const handleSuggestionClick = (suggestion) => {
+        setInputValue(suggestion.label);
+        onChange(suggestion);
+        setShowSuggestions(false);
+    };
+
     const handleBlur = () => {
-        if (inputValue.trim() !== "") {
-            onChange({ label: inputValue, value: inputValue });
+        setTimeout(() => setShowSuggestions(false), 200);
+    };
+
+    const handleFocus = () => {
+        if (filteredOptions.length > 0) {
+            setShowSuggestions(true);
         }
-        setIsEditing(false);
     };
 
     return (
-        <div>
-            {isEditing ? (
-                <input
-                    type="text"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    onBlur={handleBlur}
-                    autoFocus
-                    className='inputSelect'
-                />
-            ) : (
-                <CreatableSelect
-                    options={options}
-                    onChange={(newValue) => {
-                        if (!newValue) {
-                            setInputValue(""); // Réinitialiser la valeur si effacée
-                        } else {
-                            onChange(newValue);
-                        }
+        <div className="editable-autocomplete-input" style={{ position: "relative" }}>
+            <input
+                type="text"
+                ref={inputRef}
+                value={inputValue}
+                onChange={handleInputChange}
+                onBlur={handleBlur}
+                onFocus={handleFocus}
+                placeholder={placeholder}
+                style={{
+                    padding: "6px",
+                    borderWidth: "1px",
+                    borderRadius: "2px",
+                }}
+            />
+
+            {showSuggestions && filteredOptions.length > 0 && (
+                <ul
+                    className="suggestions-dropdown"
+                    style={{
+                        position: "absolute",
+                        top: "100%",
+                        left: 0,
+                        width: "100%",
+                        backgroundColor: "white",
+                        border: "1px solid #ccc",
+                        borderRadius: "4px",
+                        marginTop: "4px",
+                        padding: '0',
+                        maxHeight: "150px",
+                        overflowY: "auto",
+                        zIndex: 1000,
                     }}
-                    onInputChange={(newInputValue) => setInputValue(newInputValue)}
-                    value={value}
-                    placeholder={placeholder}
-                    styles={styles}
-                    isDisabled={isDisabled}
-                    onMenuClose={() => setIsEditing(true)} // Activer l'édition si aucune option n'est choisie
-                />
+                >
+                    {filteredOptions.map((option, index) => (
+                        <li
+                            key={index}
+                            onClick={() => handleSuggestionClick(option)}
+                            style={{
+                                padding: "8px",
+                                cursor: "pointer",
+                                backgroundColor: "#f9f9f9",
+                            }}
+                            onMouseEnter={(e) => (e.target.style.backgroundColor = "#e6e6e6")}
+                            onMouseLeave={(e) => (e.target.style.backgroundColor = "#f9f9f9")}
+                        >
+                            {option.label}
+                        </li>
+                    ))}
+                </ul>
             )}
         </div>
     );
 };
 
-export default EditableCreatableSelect;
+export default EditableAutocompleteInput;

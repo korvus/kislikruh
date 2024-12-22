@@ -3,7 +3,7 @@
 }
 
 div.pieces {
-    border-bottom: 1px solid #000;
+    /* border-bottom: 1px solid #000; */
     overflow: hidden;
 }
 
@@ -173,6 +173,9 @@ fieldset label {
     padding: 5px 0 5px 5px;
 }
 
+.App section {
+    overflow: hidden;
+}
 
 @media screen and (max-width: 900px) {
     .recipe {

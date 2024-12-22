@@ -5,6 +5,7 @@ import { BsTrash } from "react-icons/bs";
 import Create from "./recipe/create.js";
 // import "../style/styleRecipes.css";
 import { FaDownload } from "react-icons/fa";
+import { CgDanger } from "react-icons/cg";
 import { loadRecipes } from './utils/functionsRecipes';
 
 import { useCreateContext } from './recipe/CreateContext';
@@ -14,7 +15,7 @@ const Recipes = () => {
   const { i18n } = useTranslation();
 
   const {
-    addRcp, setAddRcp
+    addRcp, setAddRcp,
   } = useCreateContext();
 
   const {
@@ -109,7 +110,7 @@ const Recipes = () => {
           {t("addRecipe")}
         </button>
         <button onClick={() => reinitRecipe()} className="bt">
-          {t("reinitRecipe")}
+          <CgDanger /> {t("reinitRecipe")}
         </button>
         <button onClick={() => loadRecipes(i18n)} className="bt">
           <FaDownload /> {t("exportRecipes")}

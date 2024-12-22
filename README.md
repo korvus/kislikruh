@@ -1,70 +1,77 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+un bot qui permet de m'aider a coder une application next qui permet de gérer un ensemble de recette.
+Le principe est qu'il y a un set de recette prédéfinies, mais l'utilisateur peut ajouter autant de recette qu'il veux ; Chaque recettes est constituée d'ingredients, avec leur valeur en poid. Il existe deux objets json : un pour les recettes, et un pour les ingredients.
+L'utilisateur doit - a terme - pouvoir ajouter des recettes ou des ingredients, mais ces données coté clients sont ajoutées dans le webstorage, avec comme nom "recipes_[code lang]" ou "dataingredients_[code lang]" pour les ingredients.
 
-## Available Scripts
+La technologie du site est react-create-app.
+Dans le package.json on retrouve ces dépendances : 
+---
+  "dependencies": {
+    "i18next": "23.4.1",
+    "i18next-browser-languagedetector": "7.1.0",
+    "i18next-http-backend": "2.2.1",
+    "next": "^14.2.15",
+    "openai": "^4.28.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "13.0.3",
+    "react-icons": "4.10.1",
+    "react-router-dom": "6.14.2",
+    "react-scripts": "^5.0.1",
+    "react-select": "^5.7.4",
+    "recharts": "^2.13.0",
+    "web-vitals": "2.1.4"
+  },
+---
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+La structure globale des fichiers dans le dossier src/ est la suivante : 
+---
+src/
+- components/
+-- components/ingredients/
+--- components/ingredients/header.js
+--- components/ingredients/pesee.js
+--- components/ingredients/pie.js
+-- components/organigramme/
+--- components/organigramme/tableau.js
+-- components/recipe/
+--- components/recipe/create.js
+--- components/recipe/CreateContext.js
+--- components/recipe/eggCalculator.js
+---- components/recipe/create/pieces.js
+---- components/recipe/create/ingredient.js
+---- components/recipe/create/EditableCreateableSelect.js
+----- components/recipe/create/utils/validate.js
+--- components/utils/functionsRecipes.js
+--- components/utils/infobulle.js
+--- components/utils/modal.js
+-- components/functions.js
+-- components/home.js
+-- components/ingredients.js
+-- components/menu.js
+-- components/meta.js
+-- components/petrissage.js
+-- components/pieces.js
+-- components/proportions.js
+-- components/recipes.js
+-- components/temperature.js
+- store/
+-- store/centralrecipes.js
+-- store/centralingredients.json
+- data/
+-- data/dataingredients_en.js
+-- data/datarecipes_en.json
+- style/
+-- style/main.css
+-- style/[différents fichiers de css]
+- App.js
+- i18n.js
+- index.js
+- index.css
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+De plus, au même niveau que le répertoire src/, je dispose également du dossier "pages/"
+- pages/index.js
+- pages/_app.js

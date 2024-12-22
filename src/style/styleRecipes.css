@@ -80,6 +80,7 @@
 }
 
 .existingrecipes .formAddPrd {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -98,11 +99,11 @@
 }
 
 .composition .nombre {
-  margin-left: 5px;
+  margin-right: 10px;
 }
 
 .composition .ingredients input {
-  margin: 5px 2px 5px 5px;
+  margin: 5px 2px 5px 0;
 }
 
 .composition .ingredients .inputSelect {

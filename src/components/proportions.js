@@ -5,6 +5,7 @@ import Pieces from "./pieces.js";
 import Ingredients from "./ingredients.js";
 import Menu from "./menu.js";
 import Petrissage from "./petrissage.js";
+import Meta from "./meta.js";
 import Temperature from "./temperature.js";
 import { CreateProvider } from './recipe/CreateContext';
 
@@ -30,6 +31,9 @@ function Proportions() {
         </section>
         <section className="ingredients">
           <Ingredients />
+        </section>
+        <section className="meta">
+          <Meta />
         </section>
         <section className="timing">
           <Petrissage />

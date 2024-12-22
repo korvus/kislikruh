@@ -1,19 +1,16 @@
 import React, { useContext } from 'react';
 import { BsTrash } from "react-icons/bs";
-// import CreatableSelect from 'react-select/creatable';
 import EditableCreatableSelect from './EditableCreatableSelect';
 import { useTranslation } from "react-i18next";
 import { eggDetector } from "../../functions";
 import { useCreateContext } from '../CreateContext';
-import { styleSelect } from '../../../style/styleSelect'
-
 import { IngredientsContext } from "../../../store/centralIngredients";
-import { PanemContext } from "../../../store/centralrecipes";
+
 
 const Ingredients = ({ index, ingredient }) => {
 
     const { setTotalWeightIngredients, ingredientsbase, setIngredientsBase } = useCreateContext();
-    const { recipes } = useContext(PanemContext);
+    // const { recipes } = useContext(PanemContext);
     const { ingredientsData } = useContext(IngredientsContext);
 
     const { t } = useTranslation();
@@ -80,10 +77,6 @@ const Ingredients = ({ index, ingredient }) => {
         setIngredientsBase(newIngredients);
     };
 
-    const isIngredientInRecipes = (ingredientName) => {
-        return recipes.some((recipe) => recipe.titre === ingredientName);
-    };
-
     const selectedIngredient = ingredientsData.find(
         (option) => option.label === ingredient.nom
     ) || { label: ingredient.nom, value: ingredient.nom };
@@ -95,30 +88,7 @@ const Ingredients = ({ index, ingredient }) => {
                 value={selectedIngredient}
                 onChange={(e) => handleIngredientNameChange(index, e)}
                 placeholder="Choisir ou ajouter un ingrédient"
-                styles={styleSelect}
-                isDisabled={isIngredientInRecipes(ingredient.nom)}
             />
-            {/*
-            <CreatableSelect
-                options={ingredientsData.map(ing => ({ label: ing.label, value: ing.label }))}
-                onChange={(e) => handleIngredientNameChange(index, e)}
-                isClearable
-                placeholder="Choisir ou ajouter un ingrédient"
-                className="ingredient"
-                value={selectedIngredient}
-                styles={styleSelect}
-                isDisabled={isIngredientInRecipes(ingredient.nom)}
-            />
-            
-            <input
-                type="text"
-                className="ingredientName"
-                value={ingredient.nom}
-                placeholder="ingrédient"
-                onChange={(e) => handleIngredientNameChange(index, e)}
-                readOnly={isIngredientInRecipes(ingredient.nom)}
-            ></input>
-            */}
             {eggDetector.test(ingredient.nom) && (
                 <div className="nombre">
                     {" "}

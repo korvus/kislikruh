@@ -20,6 +20,7 @@ export const CreateProvider = ({ children }) => {
     const [totalWeightIngredients, setTotalWeightIngredients] = useState(0);
     const [pieces, setPieces] = useState([{ titre: "", nombre: 1 }]);
     const [addRcp, setAddRcp] = useState(false);
+    const [editRcp, setEditRcp] = useState(false);
     const [ingredientsbase, setIngredientsBase] = useState([
         { nom: "", quantite: 0, nbEggs: 0 },
     ]);
@@ -87,6 +88,7 @@ export const CreateProvider = ({ children }) => {
             pieces, setPieces,
             ingredientsbase, setIngredientsBase,
             errors, setErrors,
+            editRcp, setEditRcp,
             showPieces, setShowPieces,
             showTemperatureBase, setshowTemperatureBase,
             showTemperaturePate, setshowTemperaturePate,

@@ -2,11 +2,10 @@ import React, { useContext } from "react";
 // import OpenAI from 'openai';
 // import { useTranslation } from "react-i18next";
 // import { IoMdInformationCircleOutline } from "react-icons/io";
+import { IoMdClose } from "react-icons/io";
 import { BsBagPlusFill } from "react-icons/bs";
 import Pieces from './create/pieces';
 import Ingredients from './create/ingredient';
-// import Infobulle from "../utils/Infobulle";
-// import "../../style/create.css";
 
 import { useCreateContext } from './CreateContext';
 import { PanemContext } from "../../store/centralrecipes";
@@ -148,6 +147,7 @@ const Create = ({ addRcp, setAddRcp }) => {
             onChange={handleNameChange}
           ></input>
           {errors.name && <div className="error">{errors.name}</div>}
+          <IoMdClose className='close' size={30} onClick={() => setAddRcp(false)} />
         </fieldset>
 
         <fieldset className={`composition ${errors.ingredients ? "error" : ""}`}>

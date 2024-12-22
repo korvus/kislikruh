@@ -46,7 +46,7 @@ export const PanemContextProvider = (props) => {
       return defaultRecipes; // Pas besoin de définir l'état ici si on le définit dans useEffect
     } catch (error) {
       console.error("Erreur lors du chargement des recettes par défaut:", error);
-      return []; // Retourne un tableau vide en cas d'erreur
+      return [];
     }
   }, [i18n.language]);
 
@@ -55,15 +55,15 @@ export const PanemContextProvider = (props) => {
       let localData = getLocalData(`recipes_${i18n.language.split('-')[0]}`);
       let newData = [];
       if (!localData || localData.length === 0) {
-        newData = await loadDefaultRecipes(); // Assurez-vous que loadDefaultRecipes retourne les nouvelles données
+        newData = await loadDefaultRecipes();
       } else {
         newData = Object.values(localData);
       }
-      updateStoredRecipes(newData); // Mettez à jour le state avec les nouvelles données, que ce soit par défaut ou locales
+      updateStoredRecipes(newData);
       if (newData.length > 0) {
         setRecipedata(newData[indexSelected]);
       }
-      setIsLoading(false); // Déplacez setIsLoading ici pour couvrir tous les scénarios
+      setIsLoading(false);
     }
 
     fetchRecipes();

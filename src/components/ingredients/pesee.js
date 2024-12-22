@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import Image from 'next/image';
 import trashIcon from "../../style/trash.svg";
-import { viennoiserieDetector } from "./../functions.js";
+// import { viennoiserieDetector } from "./../functions.js";
 
 const eauDetector = new RegExp(/eau/im);
 

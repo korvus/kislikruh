@@ -118,3 +118,14 @@
   min-width: 335px;
   max-width: 250px;
 }
+
+.close {
+  position: absolute;
+  cursor: pointer;
+  top: 20px;
+  right: 40px;
+}
+
+.editable-autocomplete-input {
+  margin-right: 8px;
+}

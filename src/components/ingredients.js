@@ -45,28 +45,28 @@ const Ingredients = () => {
     setAddIgrd(!addIgrd);
   };
 
-  const findIngredientData = (name) => {
+  const findIngredientData = useCallback((name) => {
     return ingredientsData.find((ingredient) => ingredient.label.toLowerCase() === name.toLowerCase());
-  };
+  }, [ingredientsData]);
 
   const setHydra = useCallback(() => {
 
     // Calcul hydratation boulangère
-    if (!qtt || !qtt.ingredientsbase) {
+    if (!qtt || !qtt.ingredientsbase || qtt.ingredientsbase.length === 0) {
       setPercentHydra(0);
       setPercentHydraEffective(0);
       return;
     }
 
     const totalFarine = qtt.ingredientsbase.reduce((somme, ingredient) => {
-      if (farineDetector.test(ingredient.nom)) {
+      if (ingredient && farineDetector.test(ingredient.nom)) {
         return somme + ingredient.quantite;
       }
       return somme;
     }, 0);
 
     const ingredientEau = qtt.ingredientsbase.find((ingredient) =>
-      liquidDetector.test(ingredient.nom)
+      ingredient && liquidDetector.test(ingredient.nom)
     );
 
     if (!ingredientEau) {
@@ -97,7 +97,7 @@ const Ingredients = () => {
     const percentHydratationEffective = Math.round((totalEau * 100) / totalIngredients);
     setPercentHydraEffective(percentHydratationEffective);
 
-  }, [qtt]);
+  }, [findIngredientData, qtt]);
 
   const updateData = useCallback(
     (quantite) => {
@@ -117,9 +117,10 @@ const Ingredients = () => {
   }, [qtt, updateData, recipedata, totalRecetteBase, totaldemande]);
 
   const suppr = (piece) => {
+
     for (var i = 0; i < qtt.ingredientsbase.length; i++) {
       if (qtt.ingredientsbase[i].nom === piece.nom) {
-        delete qtt.ingredientsbase[i];
+        qtt.ingredientsbase.splice(i, 1);
         break;
       }
     }
@@ -145,7 +146,6 @@ const Ingredients = () => {
   };
 
   const getDefaultColor = (index) => {
-    // Génère une variation de gris ou de brun
     const shades = ['#e8dec8', '#8B4513', '#D3D3D3', '#A52A2A', '#C0C0C0'];
     return shades[index % shades.length];
   };

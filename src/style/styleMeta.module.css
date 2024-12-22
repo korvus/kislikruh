@@ -1,0 +1,9 @@
+.meta {
+    padding: 20px 40px 20px 40px;
+    border-top: 1px solid #000;
+}
+
+.meta pre {
+    font-family: arial;
+    text-wrap: initial;
+}

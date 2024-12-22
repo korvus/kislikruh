@@ -8,6 +8,7 @@
   "add": "add",
   "suppress": "erase",
   "duplicate": "Duplicate",
+  "edit": "Edit",
   "suppressThisRecipe": "Suppress this recipe",
   "exportRecipes": "Export all the recipes",
   "addRecipe": "add a recipe",
