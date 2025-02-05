@@ -15,7 +15,7 @@ const Recipes = () => {
   const { i18n } = useTranslation();
 
   const {
-    addRcp, setAddRcp,
+    addRcp, setAddRcp, setEditRcp
   } = useCreateContext();
 
   const {
@@ -46,6 +46,7 @@ const Recipes = () => {
 
   const addRecipe = () => {
     setAddRcp(!addRcp);
+    setEditRcp(false);
   };
 
   const reinitRecipe = () => {
@@ -69,6 +70,7 @@ const Recipes = () => {
         >
           <span
             onClick={() => {
+              setEditRcp(false);
               setIndexSelected(a);
             }}
           >

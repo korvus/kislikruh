@@ -33,6 +33,7 @@ const Create = ({ addRcp, setAddRcp }) => {
 
   const { addNewRecipe, recipes } = useContext(PanemContext);
 
+
   /*
   const configuration = {
     apiKey: process.env.REACT_APP_OPENAI_API_KEY,
@@ -214,7 +215,7 @@ const Create = ({ addRcp, setAddRcp }) => {
           <input
             type="text"
             id="urlRecipe"
-            className={showUrl ? "" : "hide"}
+            className={showUrl ? "longField" : "hide"}
             value={urlRecipe}
             onChange={handleUrlChange}
           ></input>

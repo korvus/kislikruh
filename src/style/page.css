@@ -7,30 +7,30 @@ div.pieces {
     overflow: hidden;
 }
 
-.pieces ul li {
+.pieces ul.pieces li {
     list-style: "+";
     text-indent: 10px;
     border-bottom: 1px solid #ccc3b0;
     padding: 4px 0;
 }
 
-.pieces ul li:last-child {
+.pieces ul.pieces li:last-child {
     border-bottom: none;
 }
 
-.pieces ul li:first-child {
+.pieces ul.pieces li:first-child {
     list-style: "";
 }
 
-.pieces ul li.total {
+.pieces ul.pieces li.total {
     list-style: "=";
 }
 
-.pieces ul li.nombre {
+.pieces ul.pieces li.nombre {
     list-style: "x";
 }
 
-.pieces ul li.nopuce {
+.pieces ul.pieces li.nopuce {
     list-style: "";
 }
 
@@ -133,6 +133,11 @@ fieldset label {
     padding: 5px;
 }
 
+.formAddPrd .longField {
+    width: calc(100% - 40px);
+    max-width: 900px;
+}
+
 .formAddPrd .submit {
     float: left;
     clear: left;
@@ -144,6 +149,7 @@ fieldset label {
 
 .formAddPrd .submitBt {
     display: flex;
+    clear: left;
 }
 
 .formAddPrd #desc {

@@ -156,7 +156,7 @@ const Pieces = () => {
             {editRcp && (
               <EditRecipe />
             )}
-            <ul>
+            <ul className='pieces'>
               {qtt.pieces.map((piece, i) => (
                 <li key={i}>
                   <button onClick={() => changeQtt(piece, -1)}>-</button>

@@ -3,15 +3,19 @@ import { BsTrash } from "react-icons/bs";
 import EditableCreatableSelect from './EditableCreatableSelect';
 import { useTranslation } from "react-i18next";
 import { eggDetector } from "../../functions";
+import { PanemContext } from "../../../store/centralrecipes";
 import { useCreateContext } from '../CreateContext';
 import { IngredientsContext } from "../../../store/centralIngredients";
+import { weightEgg } from '../../utils/const';
 
 
 const Ingredients = ({ index, ingredient }) => {
 
     const { setTotalWeightIngredients, ingredientsbase, setIngredientsBase } = useCreateContext();
-    // const { recipes } = useContext(PanemContext);
     const { ingredientsData } = useContext(IngredientsContext);
+    const { recipes } = useContext(PanemContext);
+
+    const isRecipe = recipes.some((recipe) => recipe.titre === ingredient.nom);
 
     const { t } = useTranslation();
 
@@ -31,8 +35,7 @@ const Ingredients = ({ index, ingredient }) => {
 
         // Mettre à jour nbEggs si l'ingrédient est un œuf
         if (eggDetector.test(newIngredients[index].nom)) {
-            const eggWeight = 50;
-            newIngredients[index].nbEggs = Math.round(newQuantity / eggWeight);
+            newIngredients[index].nbEggs = Math.round(newQuantity / weightEgg);
         }
 
         generateNewWeight(newIngredients);
@@ -88,6 +91,7 @@ const Ingredients = ({ index, ingredient }) => {
                 value={selectedIngredient}
                 onChange={(e) => handleIngredientNameChange(index, e)}
                 placeholder="Choisir ou ajouter un ingrédient"
+                isRecipe={isRecipe}
             />
             {eggDetector.test(ingredient.nom) && (
                 <div className="nombre">
@@ -98,9 +102,8 @@ const Ingredients = ({ index, ingredient }) => {
                 </div>
             )}
             <input
-                type="number"
                 value={ingredient.quantite}
-                placeholder="poid en gramme"
+                placeholder="poid en gramme ou ml"
                 onChange={(e) => handleIngredientQuantityChange(index, e)}
             ></input>
             <span className="unity">{ingredient.liquid ? "ml" : "gr"}</span>

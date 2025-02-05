@@ -20,7 +20,6 @@ const EggCalculator = () => {
 
   return (
     <div className="eggCalculator">
-      {/* ... votre formulaire et autres éléments de l'interface utilisateur ... */}
 
       <button onClick={displayEggCalculator}>
         <TbEggCracked />
@@ -29,7 +28,6 @@ const EggCalculator = () => {
 
       <Modal isOpen={isModalOpen} onClose={hideEggCalculator}>
         <p>Calculez le poid par rapport aux nombre d'oeufs</p>
-        {/* Vous pouvez ajouter d'autres éléments HTML ou composants ici si nécessaire */}
       </Modal>
     </div>
   );

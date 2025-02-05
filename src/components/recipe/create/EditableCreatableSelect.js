@@ -1,10 +1,13 @@
 import React, { useState, useRef } from "react";
+import { IoLink } from "react-icons/io5";
+import { renderToStaticMarkup } from "react-dom/server";
 
 const EditableAutocompleteInput = ({
     options = [],
     value = null,
     onChange,
     placeholder = "Saisir ou choisir un ingrédient",
+    isRecipe
 }) => {
     const [inputValue, setInputValue] = useState(value?.label || "");
     const [showSuggestions, setShowSuggestions] = useState(false);
@@ -40,6 +43,8 @@ const EditableAutocompleteInput = ({
         }
     };
 
+    const linkIconSvg = encodeURIComponent(renderToStaticMarkup(<IoLink />));
+
     return (
         <div className="editable-autocomplete-input" style={{ position: "relative" }}>
             <input
@@ -54,6 +59,14 @@ const EditableAutocompleteInput = ({
                     padding: "6px",
                     borderWidth: "1px",
                     borderRadius: "2px",
+                    backgroundImage: isRecipe
+                        ? `url("data:image/svg+xml,${linkIconSvg}")`
+                        : "none",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "2px center",
+                    paddingLeft: isRecipe ? "28px" : '6px',
+                    backgroundSize: "20px",
+                    minWidth: isRecipe ? '167px' : '190px'
                 }}
             />
 

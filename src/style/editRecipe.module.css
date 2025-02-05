@@ -16,6 +16,11 @@
     position: absolute;
 }
 
+.longField {
+    width: 100%;
+    max-width: 900px;
+}
+
 .section fieldset {
     display: block;
     clear: both;
@@ -26,9 +31,47 @@
     display: block;
 }
 
+.alreadyCooked {
+    clear: both;
+    display: block;
+}
+
+.alreadyCooked span {
+    display: block;
+}
+
 .section textarea {
     width: 50%;
     border: 1px solid #000;
     max-width: 500px;
     height: 100px;
+}
+
+.addIngredient {
+    float: left;
+    clear: left;
+    margin: 10px 0 10px 0px;
+    padding: 5px 15px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.submit {
+    float: left;
+    clear: left;
+    margin: 0 0 14px 2px;
+    padding: 5px 15px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.cancel {
+    border: none;
+    float: left;
+    background: none;
+    color: #999;
+    padding: 5px 15px;
+    margin-left: 10px;
+    padding-top: 6px;
+    cursor: pointer;
 }

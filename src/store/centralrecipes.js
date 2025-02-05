@@ -87,8 +87,9 @@ export const PanemContextProvider = (props) => {
 
   function updateAllRecipes(updatedRecipe, index) {
     const updatedRecipes = [...allStoredRecipes];
-    updatedRecipes[index] = updatedRecipe;
+    updatedRecipes[index] = { ...updatedRecipe };
     setLocalData(`recipes_${i18n.language}`, updatedRecipes);
+    setAllStoredRecipes([...updatedRecipes]);
   }
 
   function resetRecipesToDefault() {
@@ -103,7 +104,9 @@ export const PanemContextProvider = (props) => {
   }
 
   function updateRecipeData(newData) {
-    setRecipedata(newData);
+    const updatedRecipe = { ...newData };
+    setRecipedata(updatedRecipe);
+    // setRecipedata(newData);
     updateAllRecipes(newData, indexSelected);
   }
 

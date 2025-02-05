@@ -1,8 +1,23 @@
+.lastBlock {
+    border-bottom: 1px solid #b2cdab;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+}
+
+.lastBlock div {
+    float: left;
+    margin-right: 10px;
+}
+
+.composition {
+    padding: 10px;
+    background: #b2cdab;
+}
+
 .composition .ingredients {
     display: flex;
     align-items: center;
 }
-
 
 .ingredients ul {
     width: 900px;
@@ -41,7 +56,10 @@
     margin-left: 0;
 }
 
-/* .ingredients ul li.hydratation */
+.ingredients ul li.hydratationLine .base span {
+    display: block;
+    clear: both;
+}
 
 
 .ingredients ul li.header {
@@ -99,6 +117,23 @@
     margin-left: 40px;
     display: flex;
     vertical-align: middle;
+}
+
+.sub-ingredients {
+    border: 2px solid #cac1ad;
+}
+
+.sub-ingredients li>* {
+    flex: 1;
+    align-self: flex-start;
+    padding: 0 5px;
+    margin: 0;
+}
+
+.ingredient-label svg {
+    margin-left: 6px;
+    top: 2px;
+    position: relative;
 }
 
 @media screen and (max-width: 900px) {
