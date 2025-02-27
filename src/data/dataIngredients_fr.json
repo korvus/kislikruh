@@ -3,25 +3,25 @@
         "label": "eau",
         "color": "#64b1ff",
         "hydratation": 100,
-        "sucre": 0
+        "sucre": "0%"
     },
     {
         "label": "sucre",
         "color": "#FFFFFF",
         "hydratation": 0,
-        "sucre": 100
+        "sucre": "100%"
     },
     {
         "label": "lait",
         "color": "#efeee0",
         "hydratation": 90,
-        "sucre": 0
+        "sucre": "0%"
     },
     {
         "label": "beurre",
         "color": "#fff800",
         "hydratation": 15,
-        "sucre": 0
+        "sucre": "0%"
     },
     {
         "label": "miel",
@@ -32,7 +32,8 @@
         "label": "oeufs",
         "color": "#ffeb0b",
         "hydratation": 75,
-        "sucre": 0
+        "sucre": "0%",
+        "poid": 58
     },
     {
         "label": "sel",

@@ -118,9 +118,11 @@ const Create = ({ addRcp, setAddRcp }) => {
   const handleSubmitRecipe = () => {
     if (!validateFields()) return;
 
+    /*
     const ingredientsForSubmission = ingredientsbase.map(
       ({ nbEggs, ...ingredient }) => ingredient
     );
+    */
 
     const newRecipe = {
       editable: true,
@@ -130,7 +132,7 @@ const Create = ({ addRcp, setAddRcp }) => {
       tbase,
       tpate,
       pieces,
-      ingredientsbase: ingredientsForSubmission,
+      ingredientsbase,
     };
     addNewRecipe(newRecipe);
     setAddRcp(false);

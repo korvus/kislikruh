@@ -42,8 +42,58 @@ export const IngredientsProvider = ({ children }) => {
         fetchIngredients();
     }, [i18n.language, loadDefaultIngredients]);
 
+    const updateIngredient = (updatedIngredient) => {
+        setIngredientsData((prevIngredients) => {
+            const newIngredients = prevIngredients.map((ingredient) =>
+                ingredient.label === updatedIngredient.label ? updatedIngredient : ingredient
+            );
+            setLocalData(`ingredients_${i18n.language.split('-')[0]}`, newIngredients);
+            return newIngredients;
+        });
+    };
+
+    const removeIngredientProperty = (ingredientLabel, keyToRemove) => {
+        setIngredientsData((prevIngredients) => {
+            const updatedIngredients = prevIngredients.map((ingredient) => {
+                if (ingredient.label === ingredientLabel) {
+                    // Créer un nouvel objet sans la clé à supprimer
+                    const { [keyToRemove]: _, ...newIngredient } = ingredient;
+                    return newIngredient;
+                }
+                return ingredient;
+            });
+
+            setLocalData(`ingredients_${i18n.language.split('-')[0]}`, updatedIngredients);
+            return updatedIngredients;
+        });
+    };
+
+    // 🔹 Ajout d'un nouvel ingrédient
+    const addIngredient = (newIngredient) => {
+        if (!newIngredient.label) {
+            console.error("L'ingrédient doit avoir un label !");
+            return;
+        }
+
+        setIngredientsData((prevIngredients) => {
+            const ingredientExists = prevIngredients.some((ingredient) => ingredient.label === newIngredient.label);
+
+            if (ingredientExists) {
+                console.warn(`L'ingrédient "${newIngredient.label}" existe déjà.`);
+                return prevIngredients;
+            }
+
+            const updatedIngredients = [...prevIngredients, newIngredient];
+            setLocalData(`ingredients_${i18n.language.split('-')[0]}`, updatedIngredients);
+            return updatedIngredients;
+        });
+    };
+
     const provider = {
-        ingredientsData: ingredientsData,
+        ingredientsData,
+        updateIngredient,
+        addIngredient,
+        removeIngredientProperty,
     };
 
     return (

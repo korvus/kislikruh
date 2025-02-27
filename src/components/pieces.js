@@ -51,6 +51,7 @@ const Pieces = () => {
 
   const addRecipe = () => {
     const updatedIngredients = recipedata.ingredientsbase.map((ingredient) => {
+      /*
       if (eggDetector.test(ingredient.nom)) {
         const eggWeight = 58;
         return {
@@ -58,6 +59,7 @@ const Pieces = () => {
           nbEggs: Math.round(ingredient.quantite / eggWeight) || 0,
         };
       }
+      */
       return ingredient;
     });
 

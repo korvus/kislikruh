@@ -10,13 +10,14 @@ import React, {
 import { PanemContext } from "../store/centralrecipes";
 import { IngredientsContext } from "../store/centralIngredients";
 import QuantiteParIngredients from "./ingredients/pesee";
-import PieChartComponent from "./ingredients/pie";
+// import PieChartComponent from "./ingredients/pie";
+import BarChartComponent from './ingredients/barchart';
 import Entete from "./ingredients/header";
 import { useTranslation } from "react-i18next";
 import { roundTo, farineDetector, liquidDetector } from "./functions.js";
 
 const Ingredients = () => {
-    const { recipedata, totaldemande, updateRecipeData } = useContext(PanemContext);
+    const { recipedata, totaldemande, updateRecipeData, recipes } = useContext(PanemContext);
     const { ingredientsData } = useContext(IngredientsContext);
 
     const { t } = useTranslation();
@@ -28,13 +29,17 @@ const Ingredients = () => {
     const [percentHydra, setPercentHydra] = useState(0);
     const [percentHydraEffective, setPercentHydraEffective] = useState(0);
 
-    const getWithcoef = (base) => Math.round(base * coef * 10) / 10;
+
+    const getWithcoef = (base) => {
+        return Math.round(base * coef * 10) / 10;
+    };
 
     const totalRecetteBase = useMemo(() => {
         return recipedata.ingredientsbase.reduce((somme, ingredient) => {
             return somme + ingredient.quantite;
         }, 0);
     }, [recipedata]);
+
 
     const findIngredientData = useCallback(
         (name) => {
@@ -52,55 +57,74 @@ const Ingredients = () => {
             return;
         }
 
-        const totalFarine = recipedata.ingredientsbase.reduce((somme, ingredient) => {
-            if (ingredient && farineDetector.test(ingredient.nom)) {
-                return somme + ingredient.quantite;
+        let totalFarine = 0;
+        let totalEauBoulangere = 0;
+        let totalEauEffective = 0;
+        let totalIngredients = 0;
+
+        recipedata.ingredientsbase.forEach((ingredient) => {
+            const recipeDetails = recipes.find((rec) => rec.titre === ingredient.nom);
+
+            if (!recipeDetails) {
+                totalIngredients += ingredient.quantite;
             }
-            return somme;
-        }, 0);
 
-        const ingredientEau = recipedata.ingredientsbase.find((ingredient) =>
-            ingredient && liquidDetector.test(ingredient.nom)
-        );
+            if (farineDetector.test(ingredient.nom)) {
+                totalFarine += ingredient.quantite;
+            } else if (liquidDetector.test(ingredient.nom)) {
+                totalEauBoulangere += ingredient.quantite; // Eau pour hydratation boulangère
+                totalEauEffective += ingredient.quantite; // Eau pour hydratation effective
+            }
 
-        if (!ingredientEau) {
-            setPercentHydra(0);
-        } else {
-            const qttEau = ingredientEau.quantite;
-            const percentHydratation = roundTo((qttEau * 100) / totalFarine, 0);
-            setPercentHydra(percentHydratation);
-        }
-
-        if (totalFarine === 0) {
-            setPercentHydra(0);
-        }
-
-        // Calcul hydratation effective
-        const totalEau = recipedata.ingredientsbase.reduce((somme, ingredient) => {
             const ingredientData = findIngredientData(ingredient.nom);
             if (ingredientData && ingredientData.hydratation) {
-                return somme + (ingredientData.hydratation / 100) * ingredient.quantite;
+                totalEauEffective += (ingredientData.hydratation / 100) * ingredient.quantite;
             }
-            return somme;
-        }, 0);
 
-        const totalIngredients = recipedata.ingredientsbase.reduce((somme, ingredient) => {
-            return somme + ingredient.quantite;
-        }, 0);
+            if (recipeDetails) {
+                const totalRecetteBase = recipeDetails.ingredientsbase.reduce((sum, ing) => sum + ing.quantite, 0);
 
-        const percentHydratationEffective = Math.round((totalEau * 100) / totalIngredients);
+                recipeDetails.ingredientsbase.forEach((subIngredient) => {
+                    const adjustedQuantity = (subIngredient.quantite * ingredient.quantite) / totalRecetteBase;
+
+                    if (farineDetector.test(subIngredient.nom)) {
+                        // totalFarine += adjustedQuantity;
+                    } else if (liquidDetector.test(subIngredient.nom)) {
+                        // totalEauBoulangere += adjustedQuantity;
+                        totalEauEffective += adjustedQuantity;
+                    }
+
+                    const subIngredientData = findIngredientData(subIngredient.nom);
+                    if (subIngredientData && subIngredientData.hydratation) {
+                        totalEauEffective += (subIngredientData.hydratation / 100) * adjustedQuantity;
+                    }
+
+                    totalIngredients += adjustedQuantity;
+                });
+            }
+        });
+
+        // Calcul de l’hydratation boulangère (eau / farine)
+        const percentHydratationBoulangere = totalFarine > 0 ? roundTo((totalEauBoulangere * 100) / totalFarine, 1) : 0;
+        setPercentHydra(percentHydratationBoulangere);
+
+        // Calcul de l’hydratation effective (eau / total ingrédients)
+        const percentHydratationEffective = totalIngredients > 0 ? roundTo((totalEauEffective * 100) / totalIngredients, 1) : 0;
         setPercentHydraEffective(percentHydratationEffective);
-    }, [findIngredientData, recipedata]);
+
+    }, [findIngredientData, recipedata, recipes]);
 
     useEffect(() => {
         if (totaldemande === 0 && recipedata.ingredientsbase.length === 0) {
             setCoef(1);
         } else {
-            setCoef(roundTo(totaldemande / totalRecetteBase, 2));
+            setCoef(totaldemande / totalRecetteBase);
+            // setCoef(roundTo(totaldemande / totalRecetteBase, 2));
         }
         setHydra();
     }, [recipedata, totalRecetteBase, totaldemande, setHydra]);
 
+    /*
     const suppr = (piece) => {
         const updatedIngredients = recipedata.ingredientsbase.filter(
             (ingredient) => ingredient.nom !== piece.nom
@@ -111,6 +135,7 @@ const Ingredients = () => {
         };
         updateRecipeData(updatedRecipedata);
     };
+    */
 
     const handleNewName = (e) => {
         setNewName(e.target.value);
@@ -162,7 +187,7 @@ const Ingredients = () => {
                                     key={i}
                                     iteration={i}
                                     ingredient={ingredient}
-                                    fonctions={{ getWithcoef, suppr }}
+                                    fonctions={{ getWithcoef }}
                                 />
                             ))}
                             <li className="total">
@@ -170,19 +195,22 @@ const Ingredients = () => {
                                 <div className="base">
                                     <b>{totalRecetteBase}</b>gr
                                 </div>
-                                <div className="coef">{coef}</div>
+                                <div className="coef tooltip-container">
+                                    <span className="tooltipFull">{coef}</span>
+                                    {coef.toFixed(2)}…
+                                </div>
                                 <div>
                                     <b>{totaldemande}</b>gr
                                 </div>
                             </li>
                             <li className="hydratationLine">
-                                <label>Hydratation</label>
                                 <div className="base">
-                                    <span><b>Hydratation boulangére : {percentHydra}</b>%</span>
-                                    <span><b>Hydratation effective  : {percentHydraEffective}</b>%</span>
+                                    {percentHydra !== 0 && <span><b>Hydratation boulangére : {percentHydra}</b>%</span>}
+                                    <span><b>Hydratation {percentHydra !== 0 && "effective"}  : {percentHydraEffective}</b>%</span>
                                 </div>
                                 <div className="expanded">
-                                    <PieChartComponent data={chartData} />
+                                    <BarChartComponent data={chartData} />
+                                    {/*<PieChartComponent data={chartData} />*/}
                                 </div>
                             </li>
                             <li className={`${addIgrd ? "hide" : "addIngredient"}`}>

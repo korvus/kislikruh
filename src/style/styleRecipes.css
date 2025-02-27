@@ -58,10 +58,16 @@
   color: #fff;
 }
 
-.recipe:hover, .recipe:hover.active {
+li.recipe:hover {
   background: #888;
   color: #fff;
 }
+
+.recipes li.recipe.active,
+.recipes .active:hover .recipe {
+  background: #000;
+}
+
 
 .existing menu {
   /* display: block; */

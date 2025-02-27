@@ -1,61 +1,15 @@
-import React, { Fragment, useState, useContext } from "react";
-import Image from 'next/image';
+import React, { Fragment, useEffect, useState, useContext } from "react";
+// import Image from 'next/image';
+import { IngredientsContext } from "../../store/centralIngredients";
 import { PanemContext } from "../../store/centralrecipes";
-import { eggDetector } from "../functions";
-import { weightEgg } from '../utils/const';
-import trashIcon from "../../style/trash.svg";
+import { liquidDetector } from "../functions";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
+import { IoLink } from "react-icons/io5";
+import { RiCloseFill } from "react-icons/ri";
+import { formatQuantityWithUnits, smartRound, SecondCol, FirstCol } from './detailsIngredients';
+import RenderIngredientProperties from './RenderIngredientProperties';
 
-const eauDetector = new RegExp(/eau/im);
 
-const Supp = ({ action, ingredient }) => {
-  return (
-    <button
-      onClick={() => action(ingredient)}
-      className="supprimer"
-      title="retirer de la liste des produits"
-    >
-      <Image width="15" src={trashIcon} alt="supprimer" />
-    </button>
-  );
-};
-
-const formatQuantityWithEggs = (quantity) => {
-  if (!eggDetector.test(quantity.nom)) return `${quantity.quantite} gr`;
-
-  const nbEggsRaw = quantity.quantite / weightEgg;
-  const nbEggs = Number.isInteger(nbEggsRaw)
-    ? nbEggsRaw
-    : nbEggsRaw.toFixed(1).replace(".", ",");
-  return (
-    <>
-      {`${quantity.quantite} gr `}
-      <span style={{ color: "#666" }}>
-        {`(≃ ${nbEggs})`}
-      </span>
-    </>
-  );
-};
-
-const FirstCol = ({ ingredient }) => {
-  return <div className="base">{formatQuantityWithEggs(ingredient)}</div>;
-};
-
-const SecondCol = ({ ingredient, fonctions }) => {
-  const { suppr, getWithcoef } = fonctions;
-
-  const adjustedIngredient = {
-    ...ingredient,
-    quantite: getWithcoef(ingredient.quantite),
-  };
-
-  return (
-    <div className="recette">
-      {formatQuantityWithEggs(adjustedIngredient)}
-      <Supp action={suppr} ingredient={ingredient} />
-    </div>
-  );
-};
 
 const QuantiteParIngredients = ({
   iteration,
@@ -63,74 +17,106 @@ const QuantiteParIngredients = ({
   ingredient,
   fonctions,
 }) => {
-
-  const { recipes, totaldemande } = useContext(PanemContext);
+  const { ingredientsData } = useContext(IngredientsContext);
+  const { recipes, indexSelected, setIndexSelected } = useContext(PanemContext);
+  const { getWithcoef } = fonctions;
   const [showDetails, setShowDetails] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
 
   const toggleDetails = () => {
     setShowDetails((prev) => !prev);
   };
 
+  const ingredientData = ingredientsData.find(
+    (item) => item.label.toLowerCase() === ingredient.nom.toLowerCase()
+  );
+
+  const toggleInfo = () => {
+    setShowInfo((prev) => !prev);
+  };
+
+  const handleRecipeClick = () => {
+    if (recipeDetails) {
+      const recipeIndex = recipes.indexOf(recipeDetails);
+      if (recipeIndex !== -1) {
+        setIndexSelected(recipeIndex);
+      }
+    }
+  };
+
   let label = ingredient.nom;
   const recipeDetails = recipes.find((rec) => rec.titre === label);
 
-
-  if (eauDetector.test(label)) {
+  if (liquidDetector.test(label)) {
     label = (
       <Fragment>
         {ingredient.nom}
-        <span className="hydratation">({hydra}%)</span>
+        {hydra !== 0 && <span className="hydratation">({hydra}%)</span>}
       </Fragment>
     );
   }
 
-  const { getWithcoef } = fonctions;
+  useEffect(() => {
+    setShowInfo(false); // Ferme tous les panneaux d'informations quand la recette change
+  }, [indexSelected]);
+
   const adjustedIngredientQuantity = getWithcoef(ingredient.quantite);
 
-  // Facteur d'ajustement pour les sous-ingrédients
   const adjustmentFactor = recipeDetails
     ? adjustedIngredientQuantity /
     recipeDetails.ingredientsbase.reduce((sum, ing) => sum + ing.quantite, 0)
     : 1;
 
+  const ingredientIsRecipe = recipeDetails?.ingredientsbase?.length > 0;
+
   return (
     <Fragment>
-      <li key={iteration}>
-        <label className="ingredient-label" onClick={toggleDetails}>
-          {label}
-          {recipeDetails?.ingredientsbase?.length > 0 && (
-            showDetails ? <BsChevronUp /> : <BsChevronDown />
-          )}
+      <li className={`infoBase ${showInfo ? 'open' : ''}`} key={iteration}>
+        <label className={`ingredient-label ${ingredientIsRecipe && 'deployable'}`}>
+          <span onClick={toggleDetails}>{label}
+            <span>{ingredientIsRecipe && (
+              showDetails ? <BsChevronUp /> : <BsChevronDown />
+            )}
+            </span>
+          </span>
         </label>
         <FirstCol ingredient={ingredient} />
         <div className="coef"></div>
-        <SecondCol
-          fonctions={fonctions}
-          ingredient={ingredient}
-        />
+        <SecondCol fonctions={fonctions} isIngredientRecipe={ingredientIsRecipe} ingredient={ingredient} onToggleInfo={toggleInfo} />
       </li>
+      {showInfo && (
+        <li key={`ingredient${iteration}`} className='infos-ingredients'>
+          <RenderIngredientProperties data={ingredientData} ingredient={ingredient.nom} />
+          <RiCloseFill className="close" onClick={toggleInfo} />
+        </li>)}
       {(showDetails && recipeDetails?.ingredientsbase?.length > 0) && (
-        <li key={`ingredient${iteration}`} className="sub-ingredients">
+        <li key={`recette${iteration}`} className="sub-ingredients">
           <ul>
+            <li className="sub-ingredient-item access-recipe"><span className='lienRecette' onClick={handleRecipeClick}><IoLink />Accéder à la recette</span></li>
             {recipeDetails.ingredientsbase.map((subIngredient, i) => (
-              <li key={i} className="sub-ingredient-item">
+              <li key={`sousingredients${i}`} className="sub-ingredient-item">
                 <div>{subIngredient.nom}</div>
-                <div className="base">{subIngredient.quantite}gr
-                  {eauDetector.test(subIngredient.nom) && (
-                    <span className="hydratation"> ({hydra}%)</span>
-                  )}
-
+                <div className="base subrecipe">
+                  {subIngredient.quantite} gr
                 </div>
-                <div className='coef' />
+                <div className="coef" />
                 <div className="recette">
-                  {(subIngredient.quantite * adjustmentFactor).toFixed(2)} gr
+                  {
+                    formatQuantityWithUnits({
+                      ...subIngredient,
+                      quantite: smartRound(subIngredient.quantite * adjustmentFactor),
+                    }, ingredientsData)}
                 </div>
               </li>
             ))}
-          </ul></li>
+          </ul>
+        </li >
       )}
-    </Fragment>
+    </Fragment >
   );
 };
+
+
+
 
 export default QuantiteParIngredients;

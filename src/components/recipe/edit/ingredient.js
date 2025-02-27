@@ -7,6 +7,7 @@ import { PanemContext } from "../../../store/centralrecipes";
 import { IngredientsContext } from "../../../store/centralIngredients";
 import styles from "../../../style/styleEdit.module.css";
 import { weightEgg } from '../../utils/const';
+import { TbRulerMeasure } from "react-icons/tb";
 
 const Ingredients = ({ index, ingredient, onUpdate, onDelete }) => {
     const { ingredientsData } = useContext(IngredientsContext);
@@ -71,6 +72,8 @@ const Ingredients = ({ index, ingredient, onUpdate, onDelete }) => {
                 onChange={handleQuantityChange}
             />
             <span className="unity">{ingredient.liquid ? "ml" : "gr"}</span>
+            <TbRulerMeasure />
+
             <span
                 onClick={onDelete}
                 title={t("suppressThisRecipe")}

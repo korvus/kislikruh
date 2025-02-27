@@ -6,7 +6,7 @@ export const levainDetector = new RegExp(/levain/im);
 
 // export const viennoiserieDetector = new RegExp(/beurre sec/im);
 
-export const liquidDetector = new RegExp(/eau|water|voda/im);
+export const liquidDetector = new RegExp(/\b(eau|water|voda)\b/im);
 
 export const eggDetector = new RegExp(/\b(oeufs?|Œufs?|eggs?|jajca)\b(?! d'oeuf)/im);
 

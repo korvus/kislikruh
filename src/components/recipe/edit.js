@@ -125,10 +125,10 @@ const Edit = ({ addRcp, setAddRcp }) => {
                         <div className="error">{errors.ingredients}</div>
                     )}
                     {/*<div className="metaInfos">
-            <Infobulle text="L'icone de liquide signifie que votre ingrédient sera classifié comme liquide, permettant ainsi de calculer le taux d'hydratation.">
-              <IoMdInformationCircleOutline />
-            </Infobulle>
-          </div>*/}
+                        <Infobulle text="L'icone de liquide signifie que votre ingrédient sera classifié comme liquide, permettant ainsi de calculer le taux d'hydratation.">
+                        <IoMdInformationCircleOutline />
+                        </Infobulle>
+                    </div>*/}
                     {ingredientsbase.map((ingredient, index) => (
                         <Ingredients
                             key={`ingredientbase-${index}`}
